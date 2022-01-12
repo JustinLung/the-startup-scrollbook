@@ -1,0 +1,37 @@
+:root {
+  --dark-grey: #171919;
+  --black: #000000;
+  --white: #ffffff;
+  --ts-yellow: #fad000;
+  --ts-darker-yellow: #f9c900;
+  --ts-dark-yellow: #f7bc00;
+  --ts-light-red: #ec3d2b;
+  --ts-dark-red: #a12133;
+  --lotr-light-grey: #e2e4dc;
+  --lotr-grey: #7e7f7f;
+  --lotr-red: #d81a22;
+  --lotr-light-red: #ec5144;
+  --lotr-yellow: #feca53;
+  --lotr-orange: #f1ad48;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  padding: 0;
+  margin: 0;
+}
