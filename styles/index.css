@@ -1,3 +1,39 @@
+@font-face {
+  font-family: 'Botw';
+  src: url('~assets/lotr/The-Wild-Breath-of-Zelda.otf');
+}
+
+@font-face {
+  font-family: 'IMFellEnglish-Regular';
+  src: url('~assets/lotr/IMFellEnglish-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'tngan';
+  src: url('~assets/lotr/tngan.ttf');
+}
+
+@font-face {
+  font-family: 'Aniron';
+  src: url('~assets/lotr/Aniron.ttf');
+}
+
+.botw {
+  font-family: 'Botw';
+}
+
+.imfell {
+  font-family: 'IMFellEnglish-Regular';
+}
+
+.tngan {
+  font-family: 'Aniron';
+}
+
+.aniron {
+  font-family: 'Aniron';
+}
+
 :root {
   --dark-grey: #171919;
   --black: #000000;
