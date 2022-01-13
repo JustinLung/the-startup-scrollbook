@@ -1,12 +1,3 @@
-<script>
-  export default {
-    transition: {
-      name: 'fade',
-      mode: 'out-in'
-    }
-  }
-</script>
-
 <template>
   <section>
     <h1>Choose A Book To Preview</h1>
