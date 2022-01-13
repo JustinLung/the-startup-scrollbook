@@ -1,0 +1,20 @@
+---
+title: "Interactive book trailer"                 
+client: "ScrollBook"          
+description: "Bouw een interactieve book trailer"    
+semester: 1                       
+sprint: 6                       
+support-level: 5                 
+behavior-criteria:                  
+  collaboration: 5                
+  learning-capacity: 2            
+  problem-solving: 2              
+  act-methodically: 2             
+  communicating: 4                
+collaborators: 1                  
+tags:                               
+  - huisstijl                                        
+  - html
+  - css
+burn-points: 10  
+---
