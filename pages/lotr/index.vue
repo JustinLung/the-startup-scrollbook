@@ -1,6 +1,18 @@
 <script>
 export default {
   layout: "lotr",
+  mounted: function () {
+    gsap.to(
+      "h2 span",
+      { opacity: 1, duration: 0.75, stagger: 0.3, delay: 0.3 },
+      "group"
+    );
+    gsap.to(
+      "h2 span",
+      { letterSpacing: "0", duration: 0.75, stagger: 0.3, delay: 0.3 },
+      "group"
+    );
+  },
 };
 </script>
 
@@ -9,9 +21,9 @@ export default {
     <h1><span>J.R.R.</span> Tolkien</h1>
     <p>1954</p>
     <div>
-      <h2>
-        THE<br />FELLOWSHIP<br />
-        OF THE RING
+      <h2 class="botw">
+        <span>THE</span><br /><span>FELLOWSHIP</span>
+        <span>OF THE RING</span>
       </h2>
       <img src="~assets/lotr/ring.png" alt="Ring" class="ring" />
       <img
@@ -68,6 +80,12 @@ h2 {
   top: 2.5em;
   transform: translate(-50%);
   z-index: 99;
+}
+
+h2 span {
+  opacity: 0;
+  color: var(--lotr-red);
+  letter-spacing: 1rem;
 }
 
 img {
