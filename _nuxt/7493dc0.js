@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[6],{248:function(t,e,n){"use strict";n.r(e);var r={layout:"lotr"},l=n(27),component=Object(l.a)(r,(function(){var t=this,e=t.$createElement;t._self._c;return t._m(0)}),[function(){var t=this,e=t.$createElement,n=t._self._c||e;return n("div",[n("h1",[t._v("Lotr book")])])}],!1,null,null,null);e.default=component.exports}}]);
