@@ -88,6 +88,10 @@ h2 span {
   letter-spacing: 1rem;
 }
 
+h2 span:last-child {
+  white-space: nowrap;
+}
+
 img {
   transform: translate(-50%);
   left: 50%;
