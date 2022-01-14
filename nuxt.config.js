@@ -21,6 +21,7 @@ export default {
       {src: "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"},
       {src: "https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"},
       {src: "https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"},
+      {src: "https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"},
     ]
   },
 
