@@ -1,6 +1,6 @@
 # 📚 Scrollbook
 <!-- Geef je project een titel en schrijf in één zin wat het is -->
-<img src="https://github.com/DaanKorver/the-startup-scrollbook/blob/main/docs/ipad-mockup.png">
+<img src="https://github.com/DaanKorver/the-startup-scrollbook/blob/main/docs/ipad-mockup.jpg">
 
 ## 📖 Inhoudsopgave
 
