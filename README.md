@@ -23,7 +23,6 @@ Dit is de repository van de Scrollbook web app, waarbij wij de book-trailer van 
 * 💚 HTML
 * 🐢 CSS
 * 🥝 JavaScript
-* ~~🍊  Svelte~~
 * 🍀 Nuxtjs
 ## 🎬 Installatie & 🔋 Gebruik
 ```
