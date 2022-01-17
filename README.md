@@ -13,7 +13,7 @@
 
 ## 💾 Beschrijving
 <!-- In de Beschrijving staat hoe je project er uit ziet, hoe het werkt en wat je er mee kan. -->
-Dit is de repository van de Scrollbook web app, waarbij wij de book-trailer van het boek "The Lord of The Rings" hebben ontwikkeld in Svelte.
+Dit is de repository van de Scrollbook web app, waarbij wij de book-trailer van het boek "The Lord of The Rings" hebben ontwikkeld in Nuxtjs.
 <!-- Voeg een mooie poster visual toe 📸 -->
 <!-- Voeg een link toe naar Github Pages 🌐-->
 - [🌐 Live](http://scrollbook.student.fdnd.nl/)
