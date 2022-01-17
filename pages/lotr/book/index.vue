@@ -67,7 +67,6 @@ export default {
         })
           .setTween(action)
           .addTo(controller);
-        console.log(edgeCounter);
         edgeCounter++;
       }
     });
@@ -75,12 +74,11 @@ export default {
     particlesJS("particles-js", {
       particles: {
         number: { value: 600, density: { enable: true, value_area: 3000 } },
-        color: { value: "#fc0000" },
+        color: { value: "#fd6a02" },
         shape: {
           type: "circle",
           stroke: { width: 0, color: "#000000" },
           polygon: { nb_sides: 3 },
-          image: { src: "img/github.svg", width: 100, height: 100 },
         },
         opacity: {
           value: 0.5,
@@ -88,7 +86,7 @@ export default {
           anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false },
         },
         size: {
-          value: 2,
+          value: 5,
           random: true,
           anim: { enable: true, speed: 5, size_min: 0, sync: false },
         },
@@ -121,7 +119,7 @@ export default {
           grab: { distance: 400, line_linked: { opacity: 0.5 } },
           bubble: {
             distance: 400,
-            size: 4,
+            size: 200,
             duration: 0.3,
             opacity: 1,
             speed: 3,
