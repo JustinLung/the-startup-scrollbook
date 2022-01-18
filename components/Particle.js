@@ -23,7 +23,7 @@ class Particle {
   draw() {
     this.ctx.fillStyle = `rgba(253, 106, 2, ${this.opacity})`
     this.ctx.beginPath()
-    this.ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
+    this.ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI)
     this.ctx.fill()
   }
 }
