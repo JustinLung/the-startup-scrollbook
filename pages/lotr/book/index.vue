@@ -193,6 +193,95 @@ export default {
         </div>
       </figure>
     </div>
+    <div>
+      <p>
+        Gimli stared with wide eyes. 'Durin's Bane!' he cried, and letting his
+        axe fall he covered his face.
+      </p>
+      <p>
+        'A Balrog,' muttered Gandalf. 'Now I understand.' He faltered and leaned
+        heavily on his staff. 'What an evil fortune! And I am already weary.'
+      </p>
+      <p>
+        The dark figure streaming with fire raced towards them. The orcs yelled
+        and poured over the stone gangways. Then Boromir raised his horn and
+        blew. Loud the challenge rang and bellowed, like the shout of many
+        throats under the cavernous roof. For a moment the orcs quailed and the
+        fiery shadow halted. Then the echoes died as suddenly as a flame blown
+        out by a dark wind, and the enemy advanced again.
+      </p>
+      <p>
+        'Over the bridge!' cried Gandalf, recalling his strength. 'Fly! This is
+        a foe beyond any of you. I must hold the narrow way. Fly!'
+      </p>
+      <p>
+        Aragorn and Boromir did not heed the command, but still held their
+        ground, side by side, behind Gandalf at the far end of the bridge. The
+        others halted just within the doorway at the hall's end, and turned,
+        unable to leave their leader to face the enemy alone.
+      </p>
+    </div>
+    <div>
+      <p>
+        The Balrog reached the bridge. Gandalf stood in the middle of the span,
+        leaning on the staff in his left hand, but in his other hand Glamdring
+        gleamed, cold and white. His enemy halted again, facing him, and the
+        shadow about it reached out like two vast wings. It raised the whip, and
+        the thongs whined and cracked. Fire came from its nostrils. But Gandalf
+        stood firm.
+      </p>
+      <p>'You cannot pass,' he said.</p>
+      <p>The orcs stood still, and a dead silence fell.</p>
+      <p>
+        'I am a servant of the Secret Fire, wielder of the flame of Anor. You
+        cannot pass. The dark fire will not avail you, flame of Udûn. Go back to
+        the Shadow! You cannot pass.'
+      </p>
+      <p>
+        The Balrog made no answer. The fire in it seemed to die, but the
+        darkness grew. It stepped forward slowly on to the bridge, and suddenly
+        it drew itself up to a great height, and its wings were spread from wall
+        to wall; but still Gandalf could be seen, glimmering in the gloom; he
+        seemed small, and altogether alone: grey and bent, like a wizened tree
+        before the onset of a storm.
+      </p>
+      <p>
+        From out of the shadow a red sword leaped flaming. Glamdring glittered
+        white in answer. There was a ringing clash and a stab of white fire. The
+        Balrog fell back, and its sword flew up in molten fragments. The wizard
+        swayed on the bridge, stepped back a pace, and then again stood still.
+      </p>
+    </div>
+    <div>
+      <p>'You cannot pass!' he said.</p>
+      <p>
+        With a bound the Balrog leaped full upon the bridge. Its whip whirled
+        and hissed.
+      </p>
+      <p>
+        'He cannot stand alone!' cried Aragorn suddenly and ran back along the
+        bridge. 'Elendil!' he shouted. 'I am with you, Gandalf!'
+      </p>
+      <p>'Gondor!' cried Boromir and leaped after him.</p>
+      <p>
+        At that moment Gandalf lifted his staff, and crying aloud he smote the
+        bridge before him. The staff broke asunder and fell from his hand. A
+        blinding sheet of white flame sprang up. The bridge cracked. Right at
+        the Balrog's feet it broke, and the stone upon which it stood crashed
+        into the gulf, while the rest remained, poised, quivering like a tongue
+        of rock thrust out into emptiness.
+      </p>
+      <p>
+        With a terrible cry the Balrog fell forward, and its shadow plunged down
+        and vanished. But even as it fell it swung its whip, and the thongs
+        lashed and curled about the wizard's knees, dragging him to the brink.
+        He staggered and fell, grasped vainly at the stone, and slid into the
+        abyss.
+      </p>
+    </div>
+    <div>
+      <p>'Fly, you fools!' he cried, and was gone.</p>
+    </div>
   </div>
 </template>
 
