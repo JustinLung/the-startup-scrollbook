@@ -272,7 +272,7 @@ div.imfell {
 
 .balrog p {
   font-size: 2.5rem;
-  color: var(--white);
+  color: var(--lotr-grey);
 }
 
 .balrog figure {
@@ -305,10 +305,10 @@ div.imfell {
 .smoke-container {
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) scaleX(1.6);
   width: 100%;
   height: 100%;
-  z-index: 99;
+  z-index: 1;
 }
 .smoke {
   width: 100%;
