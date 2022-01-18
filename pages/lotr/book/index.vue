@@ -2,7 +2,6 @@
 export default {
   layout: "lotr",
   mounted: function () {
-    this.transformParagraphs();
     const controller = new ScrollMagic.Controller();
 
     //Landings animation
@@ -52,38 +51,60 @@ export default {
       .setTween(cave)
       .addTo(controller);
 
+    //Remove entry graphics
+    const fadeEntry = gsap.to(".entry", {opacity: 0})
+    new ScrollMagic.Scene({
+      offset: 3000,
+      duration: 0,
+      triggerHook: 0
+    })
+    .setTween(fadeEntry)
+    .addTo(controller)
+
     //Edge paragraph
-    const refKeys = Object.keys(this.$refs);
-    const paragraphKeys = refKeys.filter((key) => key.includes("spans"));
-    let edgeCounter = 0;
-    paragraphKeys.map((paragraph, index) => {
-      const p = this.$refs[paragraph];
-      for (let i = 0; i < p.childElementCount; i++) {
-        const action = gsap.to(p.children[i], { color: "#fff", duration: 0.1 });
-        new ScrollMagic.Scene({
-          offset: 3400 + edgeCounter * 12 + 16 * index,
-          duration: 0,
-          triggerHook: 0,
-        })
-          .setTween(action)
-          .addTo(controller);
-        edgeCounter++;
-      }
-    });
+    const p1 = gsap.to(this.$refs.p1, {color: "#fff", duration: .1})
+    const p2 = gsap.to(this.$refs.p2, {color: "#fff", duration: .1})
+    const p3 = gsap.to(this.$refs.p3, {color: "#fff", duration: .1})
+    const p4 = gsap.to(this.$refs.p4, {color: "#fff", duration: .1})
+    const edgeParagraphs = [p1, p2, p3, p4]
+
+    for (let i = 0; i < edgeParagraphs.length; i++) {
+      new ScrollMagic.Scene({
+        offset: 3500 + (200 * i),
+        duration: 100,
+        triggerHook: 0
+      })
+      .setTween(edgeParagraphs[i])
+      .addTo(controller)
+    }
+
+    //Fadeaway particles
+    const begoneParticles = gsap.to(this.$refs.particles.$el, {opacity: 0})
+    new ScrollMagic.Scene({
+      offset: 4400,
+      duration: 500,
+      triggerHook: 0
+    })
+    .setTween(begoneParticles)
+    .addTo(controller)
+
+    //Fadeaway cave
+    const fadeCave = gsap.to(".cave", {opacity: 0})
+    new ScrollMagic.Scene({
+      offset: 4700,
+      duration: 500,
+      triggerHook: 0
+    })
+    .setTween(fadeCave)
+    .addTo(controller)
+
+    //Balrog
+    gsap.to(".balrog-mouth", {opacity: .7, duration:1, repeat: -1, yoyo: true})
+    gsap.to(".balrog-eyes", {opacity: .3, duration:1, repeat: -1, repeatDelay: 1, yoyo: true})
+
   },
   methods: {
-    transformParagraphs() {
-      const refKeys = Object.keys(this.$refs);
-      const paragraphKeys = refKeys.filter((key) => key.includes("spans"));
-      paragraphKeys.map((paragraph) => {
-        const p = this.$refs[paragraph];
-        const text = p.innerText;
-        const spans = text.split(" ").map((word) => {
-          return `<span style="display: inline-block; color: rgb(126, 127, 127);">${word}</span>`;
-        });
-        p.innerHTML = spans.join(" ");
-      });
-    },
+    
   },
 };
 </script>
@@ -98,24 +119,31 @@ export default {
       </h1>
       <img src="~assets/lotr/mines-of-moria.png" alt="The mines of moria" />
     </section>
-    <section class="cave">
-    </section>
-    <section class="edge">
-      <FireParticles/>
-      <p ref="spans-1">
+    <div class="cave"></div>
+    <div class="edge">
+      <FireParticles ref="particles"/>
+      <p ref="p1">
         It came to the edge of the fire and the light faded as if a cloud had
         bent over it.
       </p>
-      <p ref="spans-2">
+      <p ref="p2">
         Then with a rush it leaped across the fissure. The flames roared up to
         greet it, and wreathed about it; and a black smoke swirled in the air.
       </p>
-      <p ref="spans-3">Its streaming mane kindled, and blazed behind it.</p>
-      <p ref="spans-4">
+      <p ref="p3">Its streaming mane kindled, and blazed behind it.</p>
+      <p ref="p4">
         In its right hand was a blade like a stabbing tongue of fire; in its
         left it held a whip of many thongs.
       </p>
-    </section>
+    </div>
+    <div class="balrog">
+      <p>'Ai! ai!' wailed Legolas. 'A Balrog! A Balrog is come!'</p>
+      <figure>
+        <img src="~assets/lotr/balrog-head.png" alt="Head of Balrog">
+        <img class="balrog-mouth" src="~assets/lotr/balrog-mouth.png" alt="Flaming Mouth of the Balrog ">
+        <img class="balrog-eyes" src="~assets/lotr/balrog-eyes.png" alt="Firey Eyes of the Balrog">
+      </figure>
+    </div>
   </div>
 </template>
 
@@ -180,24 +208,45 @@ div.imfell {
   color: var(--lotr-grey);
   position: relative;
   z-index: 3;
-  padding: 2em;
+  padding: 2rem;
   font-size: 2.5rem;
-  height: 150vh;
+  height: 165vh;
 }
 
 .edge p {
   margin-bottom: 2rem;
 }
 
-#particles-js {
+.balrog {
+  padding: 2rem;
+}
+
+.balrog p {
+  font-size: 2.5rem;
+}
+
+.balrog figure {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.balrog figure img {
+  width: 95%;
+  margin: 0 auto ;
+}
+
+.balrog figure img:first-child {
+  position: relative;
+  z-index: 2;
+}
+
+.balrog figure img:not(:first-child) {
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  height: 100%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 50% 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 @media (orientation: landscape) {
