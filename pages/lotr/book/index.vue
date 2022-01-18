@@ -132,6 +132,16 @@ export default {
     })
       .setTween(p5)
       .addTo(controller);
+
+    // FadeIn Gandalf
+    const fadeGandalf = gsap.to(".gandalf", { opacity: 1, scale: 1, y: 0 });
+    new ScrollMagic.Scene({
+      offset: 7500,
+      duration: 500,
+      triggerHook: 0,
+    })
+      .setTween(fadeGandalf)
+      .addTo(controller);
   },
   methods: {},
 };
@@ -193,7 +203,7 @@ export default {
         </div>
       </figure>
     </div>
-    <div>
+    <div class="text">
       <p>
         Gimli stared with wide eyes. 'Durin's Bane!' he cried, and letting his
         axe fall he covered his face.
@@ -214,6 +224,11 @@ export default {
         'Over the bridge!' cried Gandalf, recalling his strength. 'Fly! This is
         a foe beyond any of you. I must hold the narrow way. Fly!'
       </p>
+      <img
+        src="~assets/lotr/Gandalf.png"
+        alt="Gandalf the Grey"
+        class="gandalf"
+      />
       <p>
         Aragorn and Boromir did not heed the command, but still held their
         ground, side by side, behind Gandalf at the far end of the bridge. The
@@ -221,7 +236,7 @@ export default {
         unable to leave their leader to face the enemy alone.
       </p>
     </div>
-    <div>
+    <div class="text">
       <p>
         The Balrog reached the bridge. Gandalf stood in the middle of the span,
         leaning on the staff in his left hand, but in his other hand Glamdring
@@ -252,7 +267,7 @@ export default {
         swayed on the bridge, stepped back a pace, and then again stood still.
       </p>
     </div>
-    <div>
+    <div class="text">
       <p>'You cannot pass!' he said.</p>
       <p>
         With a bound the Balrog leaped full upon the bridge. Its whip whirled
@@ -279,7 +294,7 @@ export default {
         abyss.
       </p>
     </div>
-    <div>
+    <div class="text">
       <p>'Fly, you fools!' he cried, and was gone.</p>
     </div>
   </div>
@@ -408,6 +423,24 @@ div.imfell {
 
 .smoke-rotate-left {
   animation: rotation-left 40s infinite linear;
+}
+
+.text {
+  position: relative;
+  padding: 2rem;
+}
+
+div > p {
+  padding-top: 2rem;
+  font-size: 2.5rem;
+}
+
+.gandalf {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 10em);
+  max-width: 90%;
+  opacity: 0;
 }
 
 @keyframes rotation {
