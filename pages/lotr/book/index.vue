@@ -116,7 +116,7 @@ export default {
     //FadeIn Balrog
     const fadeBalrog = gsap.to(".balrog figure", { opacity: 1, scale: 1 });
     new ScrollMagic.Scene({
-      offset: 5500,
+      offset: 5300,
       duration: 500,
       triggerHook: 0,
     })
