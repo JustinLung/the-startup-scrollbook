@@ -132,6 +132,16 @@ export default {
     })
       .setTween(p5)
       .addTo(controller);
+
+    // FadeIn Gandalf
+    const fadeGandalf = gsap.to(".gandalf", { opacity: 1, scale: 1, y: 0 });
+    new ScrollMagic.Scene({
+      offset: 7500,
+      duration: 500,
+      triggerHook: 0,
+    })
+      .setTween(fadeGandalf)
+      .addTo(controller);
   },
   methods: {},
 };
@@ -214,6 +224,11 @@ export default {
         'Over the bridge!' cried Gandalf, recalling his strength. 'Fly! This is
         a foe beyond any of you. I must hold the narrow way. Fly!'
       </p>
+      <img
+        src="~assets/lotr/Gandalf.png"
+        alt="Gandalf the Grey"
+        class="gandalf"
+      />
       <p>
         Aragorn and Boromir did not heed the command, but still held their
         ground, side by side, behind Gandalf at the far end of the bridge. The
@@ -411,12 +426,21 @@ div.imfell {
 }
 
 .text {
+  position: relative;
   padding: 2rem;
 }
 
 div > p {
   padding-top: 2rem;
   font-size: 2.5rem;
+}
+
+.gandalf {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 10em);
+  max-width: 90%;
+  opacity: 0;
 }
 
 @keyframes rotation {
