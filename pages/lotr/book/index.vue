@@ -52,60 +52,88 @@ export default {
       .addTo(controller);
 
     //Remove entry graphics
-    const fadeEntry = gsap.to(".entry", {opacity: 0})
+    const fadeEntry = gsap.to(".entry", { opacity: 0 });
     new ScrollMagic.Scene({
       offset: 3000,
       duration: 0,
-      triggerHook: 0
+      triggerHook: 0,
     })
-    .setTween(fadeEntry)
-    .addTo(controller)
+      .setTween(fadeEntry)
+      .addTo(controller);
 
     //Edge paragraph
-    const p1 = gsap.to(this.$refs.p1, {color: "#fff", duration: .1})
-    const p2 = gsap.to(this.$refs.p2, {color: "#fff", duration: .1})
-    const p3 = gsap.to(this.$refs.p3, {color: "#fff", duration: .1})
-    const p4 = gsap.to(this.$refs.p4, {color: "#fff", duration: .1})
-    const edgeParagraphs = [p1, p2, p3, p4]
+    const p1 = gsap.to(this.$refs.p1, { color: "#fff", duration: 0.1 });
+    const p2 = gsap.to(this.$refs.p2, { color: "#fff", duration: 0.1 });
+    const p3 = gsap.to(this.$refs.p3, { color: "#fff", duration: 0.1 });
+    const p4 = gsap.to(this.$refs.p4, { color: "#fff", duration: 0.1 });
+    const edgeParagraphs = [p1, p2, p3, p4];
 
     for (let i = 0; i < edgeParagraphs.length; i++) {
       new ScrollMagic.Scene({
-        offset: 3500 + (200 * i),
+        offset: 3500 + 200 * i,
         duration: 100,
-        triggerHook: 0
+        triggerHook: 0,
       })
-      .setTween(edgeParagraphs[i])
-      .addTo(controller)
+        .setTween(edgeParagraphs[i])
+        .addTo(controller);
     }
 
     //Fadeaway particles
-    const begoneParticles = gsap.to(this.$refs.particles.$el, {opacity: 0})
+    const begoneParticles = gsap.to(this.$refs.particles.$el, { opacity: 0 });
     new ScrollMagic.Scene({
       offset: 4400,
       duration: 500,
-      triggerHook: 0
+      triggerHook: 0,
     })
-    .setTween(begoneParticles)
-    .addTo(controller)
+      .setTween(begoneParticles)
+      .addTo(controller);
 
     //Fadeaway cave
-    const fadeCave = gsap.to(".cave", {opacity: 0})
+    const fadeCave = gsap.to(".cave", { opacity: 0 });
     new ScrollMagic.Scene({
       offset: 4700,
       duration: 500,
-      triggerHook: 0
+      triggerHook: 0,
     })
-    .setTween(fadeCave)
-    .addTo(controller)
+      .setTween(fadeCave)
+      .addTo(controller);
 
     //Balrog
-    gsap.to(".balrog-mouth", {opacity: .7, duration:1, repeat: -1, yoyo: true})
-    gsap.to(".balrog-eyes", {opacity: .3, duration:1, repeat: -1, repeatDelay: 1, yoyo: true})
+    gsap.to(".balrog-mouth", {
+      opacity: 0.7,
+      duration: 1,
+      repeat: -1,
+      yoyo: true,
+    });
+    gsap.to(".balrog-eyes", {
+      opacity: 0.3,
+      duration: 1,
+      repeat: -1,
+      repeatDelay: 1,
+      yoyo: true,
+    });
 
+    //FadeIn Balrog
+    const fadeBalrog = gsap.to(".balrog figure", { opacity: 1, scale: 1 });
+    new ScrollMagic.Scene({
+      offset: 5500,
+      duration: 500,
+      triggerHook: 0,
+    })
+      .setTween(fadeBalrog)
+      .addTo(controller);
+
+    // Balrog Text
+    const p5 = gsap.to(this.$refs.p5, { color: "#000", duration: 0.1 });
+    new ScrollMagic.Scene({
+      offset: 5500,
+      duration: 500,
+      triggerHook: 0,
+    })
+      .setTween(p5)
+      .addTo(controller);
   },
-  methods: {
-    
-  },
+  methods: {},
 };
 </script>
 
@@ -121,7 +149,7 @@ export default {
     </section>
     <div class="cave"></div>
     <div class="edge">
-      <FireParticles ref="particles"/>
+      <FireParticles ref="particles" />
       <p ref="p1">
         It came to the edge of the fire and the light faded as if a cloud had
         bent over it.
@@ -137,11 +165,32 @@ export default {
       </p>
     </div>
     <div class="balrog">
-      <p>'Ai! ai!' wailed Legolas. 'A Balrog! A Balrog is come!'</p>
+      <p ref="p5">'Ai! ai!' wailed Legolas. 'A Balrog! A Balrog is come!'</p>
       <figure>
-        <img src="~assets/lotr/balrog-head.png" alt="Head of Balrog">
-        <img class="balrog-mouth" src="~assets/lotr/balrog-mouth.png" alt="Flaming Mouth of the Balrog ">
-        <img class="balrog-eyes" src="~assets/lotr/balrog-eyes.png" alt="Firey Eyes of the Balrog">
+        <img
+          class="balrog-head"
+          src="~assets/lotr/balrog-head.png"
+          alt="Head of Balrog"
+        />
+        <img
+          class="balrog-mouth"
+          src="~assets/lotr/balrog-mouth.png"
+          alt="Flaming Mouth of the Balrog "
+        />
+        <img
+          class="balrog-eyes"
+          src="~assets/lotr/balrog-eyes.png"
+          alt="Firey Eyes of the Balrog"
+        />
+        <div class="smoke-container">
+          <img class="smoke" src="~assets/lotr/smoke.png" alt="Smoke" />
+          <img class="smoke" src="~assets/lotr/smoke.png" alt="Smoke" />
+          <img
+            class="smoke smoke-rotate-left"
+            src="~assets/lotr/smoke.png"
+            alt="Smoke"
+          />
+        </div>
       </figure>
     </div>
   </div>
@@ -210,7 +259,7 @@ div.imfell {
   z-index: 3;
   padding: 2rem;
   font-size: 2.5rem;
-  height: 165vh;
+  height: 160vh;
 }
 
 .edge p {
@@ -223,6 +272,7 @@ div.imfell {
 
 .balrog p {
   font-size: 2.5rem;
+  color: var(--white);
 }
 
 .balrog figure {
@@ -230,23 +280,63 @@ div.imfell {
   display: flex;
   justify-content: center;
   align-items: center;
+  opacity: 0;
+  transform: scale(0.9);
 }
 
 .balrog figure img {
   width: 95%;
-  margin: 0 auto ;
+  margin: 0 auto;
 }
 
-.balrog figure img:first-child {
+.balrog figure .balrog-head {
   position: relative;
   z-index: 2;
 }
 
-.balrog figure img:not(:first-child) {
+.balrog figure .balrog-mouth,
+.balrog figure .balrog-eyes {
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+
+.smoke-container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+}
+.smoke {
+  width: 100%;
+  position: absolute;
+  animation: rotation 40s infinite linear;
+  opacity: 0.4;
+}
+
+.smoke-rotate-left {
+  animation: rotation-left 40s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotation-left {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
 }
 
 @media (orientation: landscape) {
