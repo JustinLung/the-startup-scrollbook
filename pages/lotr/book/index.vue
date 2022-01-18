@@ -133,6 +133,23 @@ export default {
       .setTween(p5)
       .addTo(controller);
 
+    //paragraph
+    const p6 = gsap.to(this.$refs.p6, { y: 0, opacity: 1 });
+    const p7 = gsap.to(this.$refs.p7, { y: 0, opacity: 1 });
+    const p8 = gsap.to(this.$refs.p8, { y: 0, opacity: 1 });
+    const p9 = gsap.to(this.$refs.p9, { y: 0, opacity: 1 });
+    const paragraphs = [p6, p7, p8, p9];
+
+    for (let i = 0; i < paragraphs.length; i++) {
+      new ScrollMagic.Scene({
+        offset: 6400 + 200 * i,
+        duration: 500,
+        triggerHook: 0,
+      })
+        .setTween(paragraphs[i])
+        .addTo(controller);
+    }
+
     // FadeIn Gandalf
     const fadeGandalf = gsap.to(".gandalf", { opacity: 1, scale: 1, y: 0 });
     new ScrollMagic.Scene({
@@ -141,6 +158,51 @@ export default {
       triggerHook: 0,
     })
       .setTween(fadeGandalf)
+      .addTo(controller);
+
+    const p10 = gsap.to(this.$refs.p10, { y: 0, opacity: 1 });
+    new ScrollMagic.Scene({
+      offset: 8500,
+      duration: 500,
+      triggerHook: 0,
+    })
+      .setTween(p10)
+      .addTo(controller);
+
+    const p11 = gsap.to(this.$refs.p11, { y: 0, opacity: 1 });
+    new ScrollMagic.Scene({
+      offset: 8800,
+      duration: 500,
+      triggerHook: 0,
+    })
+      .setTween(p11)
+      .addTo(controller);
+
+    const balrogFlame1 = gsap.to(".balrog-flame-2", { opacity: 1 });
+    new ScrollMagic.Scene({
+      offset: 9600,
+      duration: 300,
+      triggerHook: 0,
+    })
+      .setTween(balrogFlame1)
+      .addTo(controller);
+
+    const balrogFlame2 = gsap.to(".balrog-flame-1", { opacity: 1 });
+    new ScrollMagic.Scene({
+      offset: 10000,
+      duration: 300,
+      triggerHook: 0,
+    })
+      .setTween(balrogFlame2)
+      .addTo(controller);
+
+    const p12 = gsap.to(this.$refs.p12, { y: 0, opacity: 1 });
+    new ScrollMagic.Scene({
+      offset: 10200,
+      duration: 500,
+      triggerHook: 0,
+    })
+      .setTween(p12)
       .addTo(controller);
   },
   methods: {},
@@ -204,15 +266,15 @@ export default {
       </figure>
     </div>
     <div class="text">
-      <p>
+      <p ref="p6">
         Gimli stared with wide eyes. 'Durin's Bane!' he cried, and letting his
         axe fall he covered his face.
       </p>
-      <p>
+      <p ref="p7">
         'A Balrog,' muttered Gandalf. 'Now I understand.' He faltered and leaned
         heavily on his staff. 'What an evil fortune! And I am already weary.'
       </p>
-      <p>
+      <p ref="p8">
         The dark figure streaming with fire raced towards them. The orcs yelled
         and poured over the stone gangways. Then Boromir raised his horn and
         blew. Loud the challenge rang and bellowed, like the shout of many
@@ -220,7 +282,7 @@ export default {
         fiery shadow halted. Then the echoes died as suddenly as a flame blown
         out by a dark wind, and the enemy advanced again.
       </p>
-      <p>
+      <p ref="p9">
         'Over the bridge!' cried Gandalf, recalling his strength. 'Fly! This is
         a foe beyond any of you. I must hold the narrow way. Fly!'
       </p>
@@ -229,7 +291,12 @@ export default {
         alt="Gandalf the Grey"
         class="gandalf"
       />
-      <p>
+      <img
+        src="~assets/lotr/morder-divider.png"
+        alt="Morder Divider"
+        class="morder-divider"
+      />
+      <p ref="p10">
         Aragorn and Boromir did not heed the command, but still held their
         ground, side by side, behind Gandalf at the far end of the bridge. The
         others halted just within the doorway at the hall's end, and turned,
@@ -237,7 +304,7 @@ export default {
       </p>
     </div>
     <div class="text">
-      <p>
+      <p ref="p11">
         The Balrog reached the bridge. Gandalf stood in the middle of the span,
         leaning on the staff in his left hand, but in his other hand Glamdring
         gleamed, cold and white. His enemy halted again, facing him, and the
@@ -245,7 +312,19 @@ export default {
         the thongs whined and cracked. Fire came from its nostrils. But Gandalf
         stood firm.
       </p>
-      <p>'You cannot pass,' he said.</p>
+      <figure class="balrog-flame-container">
+        <img
+          src="~assets/lotr/Balrog-flames-1.png"
+          class="balrog-flame-1"
+          alt="Balrog Flames"
+        />
+        <img
+          src="~assets/lotr/Balrog-flames-2.png"
+          class="balrog-flame-2"
+          alt="Balrog Flames"
+        />
+      </figure>
+      <p ref="p12" class="p12">'You cannot pass,' he said.</p>
       <p>The orcs stood still, and a dead silence fell.</p>
       <p>
         'I am a servant of the Secret Fire, wielder of the flame of Anor. You
@@ -313,6 +392,7 @@ div.imfell {
   flex-direction: column;
   padding-top: 18em;
   text-align: center;
+  will-change: transform;
 }
 
 .entry .tngan {
@@ -430,6 +510,12 @@ div.imfell {
   padding: 2rem;
 }
 
+.text > p {
+  color: var(--black);
+  transform: translateY(10em);
+  opacity: 0;
+}
+
 div > p {
   padding-top: 2rem;
   font-size: 2.5rem;
@@ -441,6 +527,63 @@ div > p {
   transform: translate(-50%, 10em);
   max-width: 90%;
   opacity: 0;
+}
+
+.morder-divider {
+  max-width: 90%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.balrog-flame-container {
+  position: relative;
+}
+
+.balrog-flame-container > img {
+  width: 95%;
+  margin: 0 auto;
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.balrog-flame-1,
+.balrog-flame-2 {
+  opacity: 0;
+}
+
+.balrog-flame-container > img:first-child {
+  position: relative;
+  left: 1em;
+  top: 0;
+  transform: translate(0, 0);
+  z-index: 2;
+}
+
+.balrog-flame-container > img:nth-child(2) {
+  z-index: 1;
+}
+
+.p12 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+}
+
+.p12::before {
+  content: "";
+  background-image: url("~assets/lotr/quote-mark-red.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  transform: translateY(-0.2em);
 }
 
 @keyframes rotation {
