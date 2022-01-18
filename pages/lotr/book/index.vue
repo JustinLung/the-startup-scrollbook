@@ -193,7 +193,7 @@ export default {
         </div>
       </figure>
     </div>
-    <div>
+    <div class="text">
       <p>
         Gimli stared with wide eyes. 'Durin's Bane!' he cried, and letting his
         axe fall he covered his face.
@@ -221,7 +221,7 @@ export default {
         unable to leave their leader to face the enemy alone.
       </p>
     </div>
-    <div>
+    <div class="text">
       <p>
         The Balrog reached the bridge. Gandalf stood in the middle of the span,
         leaning on the staff in his left hand, but in his other hand Glamdring
@@ -252,7 +252,7 @@ export default {
         swayed on the bridge, stepped back a pace, and then again stood still.
       </p>
     </div>
-    <div>
+    <div class="text">
       <p>'You cannot pass!' he said.</p>
       <p>
         With a bound the Balrog leaped full upon the bridge. Its whip whirled
@@ -279,7 +279,7 @@ export default {
         abyss.
       </p>
     </div>
-    <div>
+    <div class="text">
       <p>'Fly, you fools!' he cried, and was gone.</p>
     </div>
   </div>
@@ -408,6 +408,15 @@ div.imfell {
 
 .smoke-rotate-left {
   animation: rotation-left 40s infinite linear;
+}
+
+.text {
+  padding: 2rem;
+}
+
+div > p {
+  padding-top: 2rem;
+  font-size: 2.5rem;
 }
 
 @keyframes rotation {
