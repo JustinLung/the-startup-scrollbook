@@ -34,6 +34,33 @@
   font-family: 'Aniron';
 }
 
+@font-face {
+  font-family: 'Frizquadratac';
+  src: url('~assets/the-shining/FrizQuadrataC-Bold.otf');
+}
+
+@font-face {
+  font-family: 'GT Sectra Regular';
+  src: url('~assets/the-shining/GT-Sectra-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Autography';
+  src: url('~assets/the-shining/Autography.otf');
+}
+
+.friz {
+  font-family: 'Frizquadratac';
+}
+
+.sectra {
+  font-family: 'GT Sectra Regular';
+}
+
+.autography {
+  font-family: 'Autography';
+}
+
 :root {
   --dark-grey: #171919;
   --black: #000000;
