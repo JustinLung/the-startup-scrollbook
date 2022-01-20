@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/the-shining/book", {data:[{}],fetch:{},mutations:void 0});
