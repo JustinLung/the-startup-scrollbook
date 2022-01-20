@@ -305,7 +305,7 @@ export default {
 
     const fly = gsap.to(".ring", { opacity: 1, y: 0 });
     new ScrollMagic.Scene({
-      offset: 21700,
+      offset: 21400,
       duration: 500,
       triggerHook: 0,
     })
@@ -314,7 +314,7 @@ export default {
 
     const flyText = gsap.to(".fly-text", { opacity: 1, y: 0 });
     new ScrollMagic.Scene({
-      offset: 22000,
+      offset: 21700,
       duration: 500,
       triggerHook: 0,
     })
@@ -862,7 +862,7 @@ div > p {
 }
 
 .fly {
-  height: 150vh;
+  height: 100vh;
   display: flex;
   flex-direction: row;
   justify-content: center;
