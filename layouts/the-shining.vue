@@ -1,7 +1,7 @@
 <template>
   <main>
     <div class="background"></div>
-    <Nuxt/>
+    <Nuxt />
   </main>
 </template>
 
@@ -18,5 +18,8 @@ main {
   height: 100%;
   background: var(--ts-yellow);
   z-index: -1;
+  background-image: url("~assets/the-shining/shining-bg.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 </style>

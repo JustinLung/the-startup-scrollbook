@@ -54,9 +54,6 @@ section {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-image: url("~assets/the-shining/shining-bg.svg");
-  background-size: cover;
-  background-repeat: no-repeat;
 }
 
 p {
