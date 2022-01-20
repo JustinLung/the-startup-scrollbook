@@ -113,6 +113,16 @@ export default {
       yoyo: true,
     });
 
+    // Balrog Text
+    const p5 = gsap.to(this.$refs.p5, { color: "#000", duration: 0.1 });
+    new ScrollMagic.Scene({
+      offset: 5000,
+      duration: 500,
+      triggerHook: 0,
+    })
+      .setTween(p5)
+      .addTo(controller);
+
     //FadeIn Balrog
     const fadeBalrog = gsap.to(".balrog figure", { opacity: 1, scale: 1 });
     new ScrollMagic.Scene({
@@ -123,27 +133,19 @@ export default {
       .setTween(fadeBalrog)
       .addTo(controller);
 
-    // Balrog Text
-    const p5 = gsap.to(this.$refs.p5, { color: "#000", duration: 0.1 });
-    new ScrollMagic.Scene({
-      offset: 5500,
-      duration: 500,
-      triggerHook: 0,
-    })
-      .setTween(p5)
-      .addTo(controller);
-
     //paragraph
     const p6 = gsap.to(this.$refs.p6, { y: 0, opacity: 1 });
     const p7 = gsap.to(this.$refs.p7, { y: 0, opacity: 1 });
     const p8 = gsap.to(this.$refs.p8, { y: 0, opacity: 1 });
     const p9 = gsap.to(this.$refs.p9, { y: 0, opacity: 1 });
-    const paragraphs = [p6, p7, p8, p9];
+    const p10 = gsap.to(this.$refs.p10, { y: 0, opacity: 1 });
+    const p11 = gsap.to(this.$refs.p11, { y: 0, opacity: 1 });
+    const paragraphs = [p6, p7, p8, p9, p10, p11];
 
     for (let i = 0; i < paragraphs.length; i++) {
       new ScrollMagic.Scene({
-        offset: 6400 + 200 * i,
-        duration: 500,
+        offset: 6200 + 500 * i,
+        duration: 300,
         triggerHook: 0,
       })
         .setTween(paragraphs[i])
@@ -151,37 +153,36 @@ export default {
     }
 
     // FadeIn Gandalf
-    const fadeGandalf = gsap.to(".gandalf", { opacity: 1, scale: 1, y: 0 });
+    const fadeGandalf = gsap.to(".gandalf-container", { opacity: 1 });
     new ScrollMagic.Scene({
-      offset: 7500,
+      offset: 9000,
       duration: 500,
       triggerHook: 0,
     })
       .setTween(fadeGandalf)
       .addTo(controller);
 
-    const p10 = gsap.to(this.$refs.p10, { y: 0, opacity: 1 });
-    new ScrollMagic.Scene({
-      offset: 8500,
-      duration: 500,
-      triggerHook: 0,
-    })
-      .setTween(p10)
-      .addTo(controller);
+    //paragraph
+    const p12 = gsap.to(this.$refs.p12, { y: 0, opacity: 1 });
+    const p13 = gsap.to(this.$refs.p13, { y: 0, opacity: 1 });
+    const p14 = gsap.to(this.$refs.p14, { y: 0, opacity: 1 });
+    const p15 = gsap.to(this.$refs.p15, { y: 0, opacity: 1 });
+    const gandalfParagraphs = [p12, p13, p14, p15];
 
-    const p11 = gsap.to(this.$refs.p11, { y: 0, opacity: 1 });
-    new ScrollMagic.Scene({
-      offset: 8800,
-      duration: 500,
-      triggerHook: 0,
-    })
-      .setTween(p11)
-      .addTo(controller);
+    for (let i = 0; i < gandalfParagraphs.length; i++) {
+      new ScrollMagic.Scene({
+        offset: 10300 + 500 * i,
+        duration: 500,
+        triggerHook: 0,
+      })
+        .setTween(gandalfParagraphs[i])
+        .addTo(controller);
+    }
 
     const balrogFlame1 = gsap.to(".balrog-flame-2", { opacity: 1 });
     new ScrollMagic.Scene({
-      offset: 9600,
-      duration: 300,
+      offset: 12000,
+      duration: 500,
       triggerHook: 0,
     })
       .setTween(balrogFlame1)
@@ -189,22 +190,138 @@ export default {
 
     const balrogFlame2 = gsap.to(".balrog-flame-1", { opacity: 1 });
     new ScrollMagic.Scene({
-      offset: 10000,
-      duration: 300,
+      offset: 12650,
+      duration: 500,
       triggerHook: 0,
     })
       .setTween(balrogFlame2)
       .addTo(controller);
 
-    const p12 = gsap.to(this.$refs.p12, { y: 0, opacity: 1 });
+    const p16 = gsap.to(this.$refs.p16, { y: 0, opacity: 1 });
     new ScrollMagic.Scene({
-      offset: 10200,
+      offset: 13000,
       duration: 500,
       triggerHook: 0,
     })
-      .setTween(p12)
+      .setTween(p16)
+      .addTo(controller);
+
+    const p17 = gsap.to(this.$refs.p17, { y: 0, opacity: 1 });
+    new ScrollMagic.Scene({
+      offset: 13500,
+      duration: 500,
+      triggerHook: 0,
+    })
+      .setTween(p17)
+      .addTo(controller);
+
+    const p18 = gsap.to(this.$refs.p18, { y: 0, opacity: 1 });
+    new ScrollMagic.Scene({
+      offset: 13800,
+      duration: 500,
+      triggerHook: 0,
+    })
+      .setTween(p18)
+      .addTo(controller);
+
+    const darkness = gsap.to(".darkness", { opacity: 1 });
+    new ScrollMagic.Scene({
+      offset: 15000,
+      duration: 500,
+      triggerHook: 0,
+    })
+      .setTween(darkness)
+      .addTo(controller);
+
+    //paragraph
+    const p19 = gsap.to(this.$refs.p19, {
+      color: "#fff",
+      duration: 0.1,
+      opacity: 1,
+    });
+    const p20 = gsap.to(this.$refs.p20, {
+      color: "#fff",
+      duration: 0.1,
+      opacity: 1,
+    });
+    const p21 = gsap.to(this.$refs.p21, {
+      color: "#fff",
+      duration: 0.1,
+      opacity: 1,
+    });
+    const p22 = gsap.to(this.$refs.p22, {
+      color: "#fff",
+      duration: 0.1,
+      opacity: 1,
+    });
+    const darknessParagraph = [p19, p20, p21, p22];
+
+    for (let i = 0; i < darknessParagraph.length; i++) {
+      new ScrollMagic.Scene({
+        offset: 15200 + 300 * i,
+        duration: 500,
+        triggerHook: 0,
+      })
+        .setTween(darknessParagraph[i])
+        .addTo(controller);
+    }
+
+    const fadeDarkness = gsap.to(".darkness", { opacity: 0 });
+    new ScrollMagic.Scene({
+      offset: 16700,
+      duration: 500,
+      triggerHook: 0,
+    })
+      .setTween(fadeDarkness)
+      .addTo(controller);
+
+    const p23 = gsap.to(this.$refs.p23, { y: 0, opacity: 1 });
+    const p24 = gsap.to(this.$refs.p24, { y: 0, opacity: 1 });
+    const p25 = gsap.to(this.$refs.p25, { y: 0, opacity: 1 });
+    const p26 = gsap.to(this.$refs.p26, { y: 0, opacity: 1 });
+    const p27 = gsap.to(this.$refs.p27, { y: 0, opacity: 1 });
+    const p28 = gsap.to(this.$refs.p28, { y: 0, opacity: 1 });
+    const p29 = gsap.to(this.$refs.p29, { y: 0, opacity: 1 });
+    const finalParagraph = [p23, p24, p25, p26, p27, p28, p29];
+
+    for (let i = 0; i < finalParagraph.length; i++) {
+      new ScrollMagic.Scene({
+        offset: 17500 + 500 * i,
+        duration: 500,
+        triggerHook: 0,
+      })
+        .setTween(finalParagraph[i])
+        .addTo(controller);
+    }
+
+    const p30 = gsap.to(this.$refs.p30, { opacity: 1 });
+    new ScrollMagic.Scene({
+      offset: 21000,
+      duration: 500,
+      triggerHook: 0,
+    })
+      .setTween(p30)
+      .addTo(controller);
+
+    const fly = gsap.to(".ring", { opacity: 1, y: 0 });
+    new ScrollMagic.Scene({
+      offset: 21700,
+      duration: 500,
+      triggerHook: 0,
+    })
+      .setTween(fly)
+      .addTo(controller);
+
+    const flyText = gsap.to(".fly-text", { opacity: 1, y: 0 });
+    new ScrollMagic.Scene({
+      offset: 22000,
+      duration: 500,
+      triggerHook: 0,
+    })
+      .setTween(flyText)
       .addTo(controller);
   },
+
   methods: {},
 };
 </script>
@@ -277,40 +394,57 @@ export default {
       <p ref="p8">
         The dark figure streaming with fire raced towards them. The orcs yelled
         and poured over the stone gangways. Then Boromir raised his horn and
-        blew. Loud the challenge rang and bellowed, like the shout of many
-        throats under the cavernous roof. For a moment the orcs quailed and the
-        fiery shadow halted. Then the echoes died as suddenly as a flame blown
-        out by a dark wind, and the enemy advanced again.
+        blew.
       </p>
       <p ref="p9">
+        Loud the challenge rang and bellowed, like the shout of many throats
+        under the cavernous roof.
+      </p>
+      <p ref="p10">
+        For a moment the orcs quailed and the fiery shadow halted. Then the
+        echoes died as suddenly as a flame blown out by a dark wind, and the
+        enemy advanced again.
+      </p>
+      <p ref="p11">
         'Over the bridge!' cried Gandalf, recalling his strength. 'Fly! This is
         a foe beyond any of you. I must hold the narrow way. Fly!'
       </p>
-      <img
-        src="~assets/lotr/Gandalf.png"
-        alt="Gandalf the Grey"
-        class="gandalf"
-      />
+      <div class="gandalf-container">
+        <img
+          src="~assets/lotr/script-normal-red.png"
+          class="red-ring"
+          alt="Red Ring"
+        />
+        <img
+          src="~assets/lotr/Gandalf.png"
+          alt="Gandalf the Grey"
+          class="gandalf"
+        />
+      </div>
       <img
         src="~assets/lotr/morder-divider.png"
         alt="Morder Divider"
         class="morder-divider"
       />
-      <p ref="p10">
+      <p ref="p12">
         Aragorn and Boromir did not heed the command, but still held their
-        ground, side by side, behind Gandalf at the far end of the bridge. The
-        others halted just within the doorway at the hall's end, and turned,
+        ground, side by side, behind Gandalf at the far end of the bridge.
+      </p>
+      <p ref="p13">
+        The others halted just within the doorway at the hall's end, and turned,
         unable to leave their leader to face the enemy alone.
       </p>
     </div>
     <div class="text">
-      <p ref="p11">
+      <p ref="p14">
         The Balrog reached the bridge. Gandalf stood in the middle of the span,
         leaning on the staff in his left hand, but in his other hand Glamdring
-        gleamed, cold and white. His enemy halted again, facing him, and the
-        shadow about it reached out like two vast wings. It raised the whip, and
-        the thongs whined and cracked. Fire came from its nostrils. But Gandalf
-        stood firm.
+        gleamed, cold and white.
+      </p>
+      <p ref="15">
+        His enemy halted again, facing him, and the shadow about it reached out
+        like two vast wings. It raised the whip, and the thongs whined and
+        cracked. Fire came from its nostrils. But Gandalf stood firm.
       </p>
       <figure class="balrog-flame-container">
         <img
@@ -324,58 +458,86 @@ export default {
           alt="Balrog Flames"
         />
       </figure>
-      <p ref="p12" class="p12">'You cannot pass,' he said.</p>
-      <p>The orcs stood still, and a dead silence fell.</p>
-      <p>
+      <p ref="p16" class="p16">'You cannot pass,' he said.</p>
+      <p ref="p17">The orcs stood still, and a dead silence fell.</p>
+      <p ref="p18" class="p18">
         'I am a servant of the Secret Fire, wielder of the flame of Anor. You
         cannot pass. The dark fire will not avail you, flame of Udûn. Go back to
         the Shadow! You cannot pass.'
       </p>
-      <p>
+    </div>
+    <div class="darkness">
+      <FireParticles />
+      <p ref="p19">
         The Balrog made no answer. The fire in it seemed to die, but the
         darkness grew. It stepped forward slowly on to the bridge, and suddenly
         it drew itself up to a great height, and its wings were spread from wall
-        to wall; but still Gandalf could be seen, glimmering in the gloom; he
-        seemed small, and altogether alone: grey and bent, like a wizened tree
-        before the onset of a storm.
+        to wall;
       </p>
-      <p>
+      <p ref="p20">
+        but still Gandalf could be seen, glimmering in the gloom; he seemed
+        small, and altogether alone: grey and bent, like a wizened tree before
+        the onset of a storm.
+      </p>
+      <p ref="p21">
         From out of the shadow a red sword leaped flaming. Glamdring glittered
-        white in answer. There was a ringing clash and a stab of white fire. The
-        Balrog fell back, and its sword flew up in molten fragments. The wizard
-        swayed on the bridge, stepped back a pace, and then again stood still.
+        white in answer. There was a ringing clash and a stab of white fire.
+      </p>
+      <p ref="p22">
+        The Balrog fell back, and its sword flew up in molten fragments. The
+        wizard swayed on the bridge, stepped back a pace, and then again stood
+        still.
       </p>
     </div>
     <div class="text">
-      <p>'You cannot pass!' he said.</p>
-      <p>
+      <p ref="p23" class="p23">'You cannot pass!' he said.</p>
+      <p ref="p24">
         With a bound the Balrog leaped full upon the bridge. Its whip whirled
         and hissed.
       </p>
-      <p>
+      <p ref="p25">
         'He cannot stand alone!' cried Aragorn suddenly and ran back along the
         bridge. 'Elendil!' he shouted. 'I am with you, Gandalf!'
       </p>
-      <p>'Gondor!' cried Boromir and leaped after him.</p>
-      <p>
+      <p ref="p26" class="p26">'Gondor!' cried Boromir and leaped after him.</p>
+      <p ref="p27">
         At that moment Gandalf lifted his staff, and crying aloud he smote the
         bridge before him. The staff broke asunder and fell from his hand. A
-        blinding sheet of white flame sprang up. The bridge cracked. Right at
-        the Balrog's feet it broke, and the stone upon which it stood crashed
-        into the gulf, while the rest remained, poised, quivering like a tongue
-        of rock thrust out into emptiness.
+        blinding sheet of white flame sprang up.
       </p>
-      <p>
+      <p ref="p28">
+        The bridge cracked. Right at the Balrog's feet it broke, and the stone
+        upon which it stood crashed into the gulf, while the rest remained,
+        poised, quivering like a tongue of rock thrust out into emptiness.
+      </p>
+      <p ref="p29">
         With a terrible cry the Balrog fell forward, and its shadow plunged down
-        and vanished. But even as it fell it swung its whip, and the thongs
-        lashed and curled about the wizard's knees, dragging him to the brink.
-        He staggered and fell, grasped vainly at the stone, and slid into the
-        abyss.
+        and vanished.
+      </p>
+      <p ref="p30">
+        But even as it fell it swung its whip, and the thongs lashed and curled
+        about the wizard's knees, dragging him to the brink. He staggered and
+        fell, grasped vainly at the stone, and slid into the abyss.
       </p>
     </div>
-    <div class="text">
-      <p>'Fly, you fools!' he cried, and was gone.</p>
+    <div class="fly text">
+      <img src="~assets/lotr/ring.png" alt="Ring" class="ring" />
+      <p class="fly-text">'Fly, you fools!' he cried, and was gone.</p>
     </div>
+    <p class="continue">Continue reading</p>
+    <section class="buy-section">
+      <p>J.R.R. Tolkien</p>
+      <h2>The Fellowship <br />of the Ring</h2>
+      <p>1954</p>
+      <figure>
+        <img
+          src="~assets/Bookcover-thelordoftherings.png"
+          alt="Book Cover Lord of the Rings"
+          class="book"
+        />
+      </figure>
+      <NuxtLink to="/" class="cta">Buy | €6,49</NuxtLink>
+    </section>
   </div>
 </template>
 
@@ -512,8 +674,9 @@ div.imfell {
 
 .text > p {
   color: var(--black);
-  transform: translateY(10em);
+  transform: translateY(2em);
   opacity: 0;
+  padding: 3em 0;
 }
 
 div > p {
@@ -521,12 +684,37 @@ div > p {
   font-size: 2.5rem;
 }
 
-.gandalf {
-  position: relative;
-  left: 50%;
-  transform: translate(-50%, 10em);
-  max-width: 90%;
+.gandalf-container {
   opacity: 0;
+}
+
+.red-ring {
+  position: relative;
+  left: 52%;
+  width: 45em;
+  transform-origin: 0 40%;
+  animation-name: spin;
+  animation-duration: 50s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  z-index: 1;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg) translateX(-50%) translateY(-10%);
+  }
+  to {
+    transform: rotate(360deg) translateX(-50%) translateY(-10%);
+  }
+}
+
+.gandalf {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 80%;
+  z-index: 2;
 }
 
 .morder-divider {
@@ -567,14 +755,14 @@ div > p {
   z-index: 1;
 }
 
-.p12 {
+.p16 {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 1em;
 }
 
-.p12::before {
+.p16::before {
   content: "";
   background-image: url("~assets/lotr/quote-mark-red.png");
   background-size: contain;
@@ -584,6 +772,179 @@ div > p {
   width: 1.5em;
   height: 1.5em;
   transform: translateY(-0.2em);
+}
+
+.p18 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7em;
+  text-align: center;
+  padding-bottom: 0 !important;
+}
+
+.p18::before {
+  content: "";
+  background-image: url("~assets/lotr/quote-mark-red.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  transform: translateY(-0.2em);
+}
+
+.darkness {
+  height: 300vh;
+  width: 100%;
+  background: var(--black);
+  position: relative;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.darkness > canvas {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.darkness > p {
+  padding: 0.5em 0;
+  color: var(--lotr-grey);
+  opacity: 0;
+}
+
+.p23 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  text-align: center;
+}
+
+.p23::before {
+  content: "";
+  background-image: url("~assets/lotr/quote-mark-red.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  transform: translateY(-0.2em);
+}
+
+.p26 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+}
+
+.p26::before {
+  content: "";
+  background-image: url("~assets/lotr/quote-mark-red.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  transform: translateY(-0.4em);
+}
+
+.fly {
+  height: 150vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.fly-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  text-align: center;
+  opacity: 0;
+}
+
+.fly-text::before {
+  content: "";
+  background-image: url("~assets/lotr/quote-mark-red.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  transform: translateY(-0.2em);
+}
+
+.ring {
+  opacity: 0;
+  width: 20em;
+  margin-bottom: 30em;
+}
+
+.continue {
+  text-align: center;
+  font-size: 1.3rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+.buy-section {
+  text-align: center;
+  margin: 2em;
+  padding: 2em 0;
+  border-radius: 2em;
+  background-color: var(--white);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+.buy-section figure > img {
+  width: 15em;
+  padding: 3em 0;
+   animation: up-and-down infinite alternate ease 2s;
+}
+
+.buy-section h2 {
+  font-size: 2.5rem;
+}
+
+.buy-section p {
+  font-size: 2rem;
+}
+
+.cta {
+  position: relative;
+  z-index: 5;
+  padding: 1em 3em;
+  font-size: 1.2rem;
+  background-color: var(--dark-blue);
+  margin-bottom: 2em;
+}
+
+@keyframes up-and-down {
+  from {
+    transform: translateY(-1em);
+  }
+
+  to {
+    transform: translateY(1em);
+  }
 }
 
 @keyframes rotation {

@@ -135,20 +135,6 @@ li > span {
   font-size: 1.5rem;
 }
 
-.cta {
-  color: var(--white);
-  background-color: var(--dark-grey);
-  text-decoration: none;
-  padding: 1em 2em;
-  border-radius: 0.5em;
-  margin: 2em 0 3em;
-  transition: 0.3s ease-in-out;
-}
-
-.cta:hover {
-  transform: scale(1.1);
-}
-
 @keyframes spin {
   from {
     transform: rotate(0deg) translateX(-50%);
