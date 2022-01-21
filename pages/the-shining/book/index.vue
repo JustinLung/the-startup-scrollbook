@@ -158,6 +158,10 @@ export default {
   overflow: hidden;
 }
 
+.entry .door {
+  will-change: transform;
+}
+
 .entry .door-container img {
   width: 100%;
 }
