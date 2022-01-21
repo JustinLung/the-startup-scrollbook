@@ -62,21 +62,21 @@ export default {
       .addTo(controller);
 
     //Edge paragraph
-    const p1 = gsap.to(this.$refs.p1, { color: "#fff", duration: 0.1 });
-    const p2 = gsap.to(this.$refs.p2, { color: "#fff", duration: 0.1 });
-    const p3 = gsap.to(this.$refs.p3, { color: "#fff", duration: 0.1 });
-    const p4 = gsap.to(this.$refs.p4, { color: "#fff", duration: 0.1 });
-    const edgeParagraphs = [p1, p2, p3, p4];
+    // const p1 = gsap.to(this.$refs.p1, { color: "#fff", duration: 0.1 });
+    // const p2 = gsap.to(this.$refs.p2, { color: "#fff", duration: 0.1 });
+    // const p3 = gsap.to(this.$refs.p3, { color: "#fff", duration: 0.1 });
+    // const p4 = gsap.to(this.$refs.p4, { color: "#fff", duration: 0.1 });
+    // const edgeParagraphs = [p1, p2, p3, p4];
 
-    for (let i = 0; i < edgeParagraphs.length; i++) {
-      new ScrollMagic.Scene({
-        offset: 3500 + 200 * i,
-        duration: 100,
-        triggerHook: 0,
-      })
-        .setTween(edgeParagraphs[i])
-        .addTo(controller);
-    }
+    // for (let i = 0; i < edgeParagraphs.length; i++) {
+    //   new ScrollMagic.Scene({
+    //     offset: 3500 + 200 * i,
+    //     duration: 100,
+    //     triggerHook: 0,
+    //   })
+    //     .setTween(edgeParagraphs[i])
+    //     .addTo(controller);
+    // }
 
     //Fadeaway particles
     const begoneParticles = gsap.to(this.$refs.particles.$el, { opacity: 0 });
@@ -114,14 +114,14 @@ export default {
     });
 
     // Balrog Text
-    const p5 = gsap.to(this.$refs.p5, { color: "#000", duration: 0.1 });
-    new ScrollMagic.Scene({
-      offset: 5000,
-      duration: 500,
-      triggerHook: 0,
-    })
-      .setTween(p5)
-      .addTo(controller);
+    // const p5 = gsap.to(this.$refs.p5, { color: "#000", duration: 0.1 });
+    // new ScrollMagic.Scene({
+    //   offset: 5000,
+    //   duration: 500,
+    //   triggerHook: 0,
+    // })
+    //   .setTween(p5)
+    //   .addTo(controller);
 
     //FadeIn Balrog
     const fadeBalrog = gsap.to(".balrog figure", { opacity: 1, scale: 1 });
@@ -134,23 +134,23 @@ export default {
       .addTo(controller);
 
     //paragraph
-    const p6 = gsap.to(this.$refs.p6, { y: 0, opacity: 1 });
-    const p7 = gsap.to(this.$refs.p7, { y: 0, opacity: 1 });
-    const p8 = gsap.to(this.$refs.p8, { y: 0, opacity: 1 });
-    const p9 = gsap.to(this.$refs.p9, { y: 0, opacity: 1 });
-    const p10 = gsap.to(this.$refs.p10, { y: 0, opacity: 1 });
-    const p11 = gsap.to(this.$refs.p11, { y: 0, opacity: 1 });
-    const paragraphs = [p6, p7, p8, p9, p10, p11];
+    // const p6 = gsap.to(this.$refs.p6, { y: 0, opacity: 1 });
+    // const p7 = gsap.to(this.$refs.p7, { y: 0, opacity: 1 });
+    // const p8 = gsap.to(this.$refs.p8, { y: 0, opacity: 1 });
+    // const p9 = gsap.to(this.$refs.p9, { y: 0, opacity: 1 });
+    // const p10 = gsap.to(this.$refs.p10, { y: 0, opacity: 1 });
+    // const p11 = gsap.to(this.$refs.p11, { y: 0, opacity: 1 });
+    // const paragraphs = [p6, p7, p8, p9, p10, p11];
 
-    for (let i = 0; i < paragraphs.length; i++) {
-      new ScrollMagic.Scene({
-        offset: 6200 + 500 * i,
-        duration: 300,
-        triggerHook: 0,
-      })
-        .setTween(paragraphs[i])
-        .addTo(controller);
-    }
+    // for (let i = 0; i < paragraphs.length; i++) {
+    //   new ScrollMagic.Scene({
+    //     offset: 6200 + 500 * i,
+    //     duration: 300,
+    //     triggerHook: 0,
+    //   })
+    //     .setTween(paragraphs[i])
+    //     .addTo(controller);
+    // }
 
     // FadeIn Gandalf
     const fadeGandalf = gsap.to(".gandalf-container", { opacity: 1 });
@@ -163,19 +163,34 @@ export default {
       .addTo(controller);
 
     //paragraph
-    const p12 = gsap.to(this.$refs.p12, { y: 0, opacity: 1 });
-    const p13 = gsap.to(this.$refs.p13, { y: 0, opacity: 1 });
-    const p14 = gsap.to(this.$refs.p14, { y: 0, opacity: 1 });
-    const p15 = gsap.to(this.$refs.p15, { y: 0, opacity: 1 });
-    const gandalfParagraphs = [p12, p13, p14, p15];
+    // const p12 = gsap.to(this.$refs.p12, { y: 0, opacity: 1 });
+    // const p13 = gsap.to(this.$refs.p13, { y: 0, opacity: 1 });
+    // const p14 = gsap.to(this.$refs.p14, { y: 0, opacity: 1 });
+    // const p15 = gsap.to(this.$refs.p15, { y: 0, opacity: 1 });
+    // const gandalfParagraphs = [p12, p13, p14, p15];
 
-    for (let i = 0; i < gandalfParagraphs.length; i++) {
+    // for (let i = 0; i < gandalfParagraphs.length; i++) {
+    //   new ScrollMagic.Scene({
+    //     offset: 10300 + 500 * i,
+    //     duration: 500,
+    //     triggerHook: 0,
+    //   })
+    //     .setTween(gandalfParagraphs[i])
+    //     .addTo(controller);
+    // }
+
+    //Text animations
+    const p = document.querySelectorAll("[data-offset]");
+    for (let i = 0; i < p.length; i++) {
+      p[i].style.opacity = 0;
+      p[i].style.transform = "translateY(2em)";
+      const fade = gsap.to(p[i], { opacity: 1, y: 0 });
       new ScrollMagic.Scene({
-        offset: 10300 + 500 * i,
-        duration: 500,
+        offset: p[i].dataset.offset,
+        duration: 200,
         triggerHook: 0,
       })
-        .setTween(gandalfParagraphs[i])
+        .setTween(fade)
         .addTo(controller);
     }
 
@@ -197,102 +212,102 @@ export default {
       .setTween(balrogFlame2)
       .addTo(controller);
 
-    const p16 = gsap.to(this.$refs.p16, { y: 0, opacity: 1 });
-    new ScrollMagic.Scene({
-      offset: 13000,
-      duration: 500,
-      triggerHook: 0,
-    })
-      .setTween(p16)
-      .addTo(controller);
+    // const p16 = gsap.to(this.$refs.p16, { y: 0, opacity: 1 });
+    // new ScrollMagic.Scene({
+    //   offset: 13000,
+    //   duration: 500,
+    //   triggerHook: 0,
+    // })
+    //   .setTween(p16)
+    //   .addTo(controller);
 
-    const p17 = gsap.to(this.$refs.p17, { y: 0, opacity: 1 });
-    new ScrollMagic.Scene({
-      offset: 13500,
-      duration: 500,
-      triggerHook: 0,
-    })
-      .setTween(p17)
-      .addTo(controller);
+    // const p17 = gsap.to(this.$refs.p17, { y: 0, opacity: 1 });
+    // new ScrollMagic.Scene({
+    //   offset: 13500,
+    //   duration: 500,
+    //   triggerHook: 0,
+    // })
+    //   .setTween(p17)
+    //   .addTo(controller);
 
-    const p18 = gsap.to(this.$refs.p18, { y: 0, opacity: 1 });
-    new ScrollMagic.Scene({
-      offset: 13800,
-      duration: 500,
-      triggerHook: 0,
-    })
-      .setTween(p18)
-      .addTo(controller);
+    // const p18 = gsap.to(this.$refs.p18, { y: 0, opacity: 1 });
+    // new ScrollMagic.Scene({
+    //   offset: 13800,
+    //   duration: 500,
+    //   triggerHook: 0,
+    // })
+    //   .setTween(p18)
+    //   .addTo(controller);
 
-    const darkness = gsap.to(".darkness", { opacity: 1 });
-    new ScrollMagic.Scene({
-      offset: 15000,
-      duration: 500,
-      triggerHook: 0,
-    })
-      .setTween(darkness)
-      .addTo(controller);
+    // const darkness = gsap.to(".darkness", { opacity: 1 });
+    // new ScrollMagic.Scene({
+    //   offset: 15000,
+    //   duration: 500,
+    //   triggerHook: 0,
+    // })
+    //   .setTween(darkness)
+    //   .addTo(controller);
 
     //paragraph
-    const p19 = gsap.to(this.$refs.p19, {
-      color: "#fff",
-      duration: 0.1,
-      opacity: 1,
-    });
-    const p20 = gsap.to(this.$refs.p20, {
-      color: "#fff",
-      duration: 0.1,
-      opacity: 1,
-    });
-    const p21 = gsap.to(this.$refs.p21, {
-      color: "#fff",
-      duration: 0.1,
-      opacity: 1,
-    });
-    const p22 = gsap.to(this.$refs.p22, {
-      color: "#fff",
-      duration: 0.1,
-      opacity: 1,
-    });
-    const darknessParagraph = [p19, p20, p21, p22];
+    // const p19 = gsap.to(this.$refs.p19, {
+    //   color: "#fff",
+    //   duration: 0.1,
+    //   opacity: 1,
+    // });
+    // const p20 = gsap.to(this.$refs.p20, {
+    //   color: "#fff",
+    //   duration: 0.1,
+    //   opacity: 1,
+    // });
+    // const p21 = gsap.to(this.$refs.p21, {
+    //   color: "#fff",
+    //   duration: 0.1,
+    //   opacity: 1,
+    // });
+    // const p22 = gsap.to(this.$refs.p22, {
+    //   color: "#fff",
+    //   duration: 0.1,
+    //   opacity: 1,
+    // });
+    // const darknessParagraph = [p19, p20, p21, p22];
 
-    for (let i = 0; i < darknessParagraph.length; i++) {
-      new ScrollMagic.Scene({
-        offset: 15200 + 300 * i,
-        duration: 500,
-        triggerHook: 0,
-      })
-        .setTween(darknessParagraph[i])
-        .addTo(controller);
-    }
+    // for (let i = 0; i < darknessParagraph.length; i++) {
+    //   new ScrollMagic.Scene({
+    //     offset: 15200 + 300 * i,
+    //     duration: 500,
+    //     triggerHook: 0,
+    //   })
+    //     .setTween(darknessParagraph[i])
+    //     .addTo(controller);
+    // }
 
     const fadeDarkness = gsap.to(".darkness", { opacity: 0 });
     new ScrollMagic.Scene({
-      offset: 16700,
+      offset: 18000,
       duration: 500,
       triggerHook: 0,
     })
       .setTween(fadeDarkness)
       .addTo(controller);
 
-    const p23 = gsap.to(this.$refs.p23, { y: 0, opacity: 1 });
-    const p24 = gsap.to(this.$refs.p24, { y: 0, opacity: 1 });
-    const p25 = gsap.to(this.$refs.p25, { y: 0, opacity: 1 });
-    const p26 = gsap.to(this.$refs.p26, { y: 0, opacity: 1 });
-    const p27 = gsap.to(this.$refs.p27, { y: 0, opacity: 1 });
-    const p28 = gsap.to(this.$refs.p28, { y: 0, opacity: 1 });
-    const p29 = gsap.to(this.$refs.p29, { y: 0, opacity: 1 });
-    const finalParagraph = [p23, p24, p25, p26, p27, p28, p29];
+    // const p23 = gsap.to(this.$refs.p23, { y: 0, opacity: 1 });
+    // const p24 = gsap.to(this.$refs.p24, { y: 0, opacity: 1 });
+    // const p25 = gsap.to(this.$refs.p25, { y: 0, opacity: 1 });
+    // const p26 = gsap.to(this.$refs.p26, { y: 0, opacity: 1 });
+    // const p27 = gsap.to(this.$refs.p27, { y: 0, opacity: 1 });
+    // const p28 = gsap.to(this.$refs.p28, { y: 0, opacity: 1 });
+    // const p29 = gsap.to(this.$refs.p29, { y: 0, opacity: 1 });
+    // const finalParagraph = [p23, p24, p25, p26, p27, p28, p29];
 
-    for (let i = 0; i < finalParagraph.length; i++) {
-      new ScrollMagic.Scene({
-        offset: 17500 + 500 * i,
-        duration: 500,
-        triggerHook: 0,
-      })
-        .setTween(finalParagraph[i])
-        .addTo(controller);
-    }
+    // for (let i = 0; i < finalParagraph.length; i++) {
+    //   new ScrollMagic.Scene({
+    //     offset: 17500 + 500 * i,
+    //     duration: 500,
+    //     triggerHook: 0,
+    //   })
+    //     .setTween(finalParagraph[i])
+    //     .addTo(controller);
+    // }
 
     const p30 = gsap.to(this.$refs.p30, { opacity: 1 });
     new ScrollMagic.Scene({
@@ -339,22 +354,26 @@ export default {
     <div class="cave"></div>
     <div class="edge">
       <FireParticles ref="particles" />
-      <p ref="p1">
+      <p data-offset="3500">
         It came to the edge of the fire and the light faded as if a cloud had
         bent over it.
       </p>
-      <p ref="p2">
+      <p data-offset="3700">
         Then with a rush it leaped across the fissure. The flames roared up to
         greet it, and wreathed about it; and a black smoke swirled in the air.
       </p>
-      <p ref="p3">Its streaming mane kindled, and blazed behind it.</p>
-      <p ref="p4">
+      <p data-offset="3900">
+        Its streaming mane kindled, and blazed behind it.
+      </p>
+      <p data-offset="4100">
         In its right hand was a blade like a stabbing tongue of fire; in its
         left it held a whip of many thongs.
       </p>
     </div>
     <div class="balrog">
-      <p ref="p5">'Ai! ai!' wailed Legolas. 'A Balrog! A Balrog is come!'</p>
+      <p data-offset="5000">
+        'Ai! ai!' wailed Legolas. 'A Balrog! A Balrog is come!'
+      </p>
       <figure>
         <img
           class="balrog-head"
@@ -383,29 +402,29 @@ export default {
       </figure>
     </div>
     <div class="text">
-      <p ref="p6">
+      <p data-offset="6400">
         Gimli stared with wide eyes. 'Durin's Bane!' he cried, and letting his
         axe fall he covered his face.
       </p>
-      <p ref="p7">
+      <p data-offset="6900">
         'A Balrog,' muttered Gandalf. 'Now I understand.' He faltered and leaned
         heavily on his staff. 'What an evil fortune! And I am already weary.'
       </p>
-      <p ref="p8">
+      <p data-offset="7400">
         The dark figure streaming with fire raced towards them. The orcs yelled
         and poured over the stone gangways. Then Boromir raised his horn and
         blew.
       </p>
-      <p ref="p9">
+      <p data-offset="7900">
         Loud the challenge rang and bellowed, like the shout of many throats
         under the cavernous roof.
       </p>
-      <p ref="p10">
+      <p data-offset="8100">
         For a moment the orcs quailed and the fiery shadow halted. Then the
         echoes died as suddenly as a flame blown out by a dark wind, and the
         enemy advanced again.
       </p>
-      <p ref="p11">
+      <p data-offset="8600">
         'Over the bridge!' cried Gandalf, recalling his strength. 'Fly! This is
         a foe beyond any of you. I must hold the narrow way. Fly!'
       </p>
@@ -426,22 +445,22 @@ export default {
         alt="Morder Divider"
         class="morder-divider"
       />
-      <p ref="p12">
+      <p data-offset="10300">
         Aragorn and Boromir did not heed the command, but still held their
         ground, side by side, behind Gandalf at the far end of the bridge.
       </p>
-      <p ref="p13">
+      <p data-offset="10800">
         The others halted just within the doorway at the hall's end, and turned,
         unable to leave their leader to face the enemy alone.
       </p>
     </div>
     <div class="text">
-      <p ref="p14">
+      <p data-offset="11300">
         The Balrog reached the bridge. Gandalf stood in the middle of the span,
         leaning on the staff in his left hand, but in his other hand Glamdring
         gleamed, cold and white.
       </p>
-      <p ref="15">
+      <p data-offset="11800">
         His enemy halted again, facing him, and the shadow about it reached out
         like two vast wings. It raised the whip, and the thongs whined and
         cracked. Fire came from its nostrils. But Gandalf stood firm.
@@ -458,9 +477,9 @@ export default {
           alt="Balrog Flames"
         />
       </figure>
-      <p ref="p16" class="p16">'You cannot pass,' he said.</p>
-      <p ref="p17">The orcs stood still, and a dead silence fell.</p>
-      <p ref="p18" class="p18">
+      <p data-offset="13500" class="p16">'You cannot pass,' he said.</p>
+      <p data-offset="13800">The orcs stood still, and a dead silence fell.</p>
+      <p data-offset="14100" class="p18">
         'I am a servant of the Secret Fire, wielder of the flame of Anor. You
         cannot pass. The dark fire will not avail you, flame of Udûn. Go back to
         the Shadow! You cannot pass.'
@@ -468,7 +487,7 @@ export default {
     </div>
     <div class="darkness">
       <FireParticles />
-      <p ref="p19">
+      <p data-offset="14200">
         The Balrog made no answer. The fire in it seemed to die, but the
         darkness grew. It stepped forward slowly on to the bridge, and suddenly
         it drew itself up to a great height, and its wings were spread from wall
@@ -917,7 +936,7 @@ div > p {
 .buy-section figure > img {
   width: 15em;
   padding: 3em 0;
-   animation: up-and-down infinite alternate ease 2s;
+  animation: up-and-down infinite alternate ease 2s;
 }
 
 .buy-section h2 {
