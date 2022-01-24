@@ -100,6 +100,24 @@ export default {
       yoyo: true,
     });
 
+    const wideEyesText = gsap.fromTo(
+      ".wide-eyes-text",
+      {
+        opacity: 1,
+        ease: 1,
+        scale: 1,
+      },
+      { opacity: 0, scale: 2 }
+    );
+    new ScrollMagic.Scene({
+      triggerElement: ".wide-eyes-container",
+      duration: 1000,
+      triggerHook: 0,
+    })
+      .setTween(wideEyesText)
+      .setPin(".wide-eyes-container")
+      .addTo(controller);
+
     //FadeIn Balrog
     const fadeBalrog = gsap.to(".balrog figure", { opacity: 1, scale: 1 });
     new ScrollMagic.Scene({
@@ -221,32 +239,41 @@ export default {
       </figure>
     </div>
     <div class="text">
-      <p data-offset="6400">
-        Gimli stared with wide eyes. 'Durin's Bane!' he cried, and letting his
-        axe fall he covered his face.
-      </p>
-      <p data-offset="6900">
-        'A Balrog,' muttered Gandalf. 'Now I understand.' He faltered and leaned
-        heavily on his staff. 'What an evil fortune! And I am already weary.'
-      </p>
-      <p data-offset="7400">
-        The dark figure streaming with fire raced towards them. The orcs yelled
-        and poured over the stone gangways. Then Boromir raised his horn and
-        blew.
-      </p>
-      <p data-offset="7900">
-        Loud the challenge rang and bellowed, like the shout of many throats
-        under the cavernous roof.
-      </p>
-      <p data-offset="8100">
-        For a moment the orcs quailed and the fiery shadow halted. Then the
-        echoes died as suddenly as a flame blown out by a dark wind, and the
-        enemy advanced again.
-      </p>
-      <p data-offset="8600">
-        'Over the bridge!' cried Gandalf, recalling his strength. 'Fly! This is
-        a foe beyond any of you. I must hold the narrow way. Fly!'
-      </p>
+      <div class="wide-eyes-container">
+        <p class="wide-eyes-text">Gimli stared with wide eyes.</p>
+      </div>
+      <div class="inner">
+        <p data-offset="6400" class="durin-text">
+          'Durin's Bane!' he cried, and letting his axe fall he covered his
+          face.
+        </p>
+        <p data-offset="6900" class="gandalf-muttered-text">
+          'A Balrog,' muttered Gandalf. 'Now I understand.' He faltered and
+          leaned heavily on his staff. 'What an evil fortune! And I am already
+          weary.'
+        </p>
+      </div>
+      <div class="inner-text-container">
+        <p data-offset="7400" class="dark-figure-text">
+          The dark figure streaming with fire raced towards them. The orcs
+          yelled and poured over the stone gangways. Then Boromir raised his
+          horn and blew.
+        </p>
+        <p data-offset="7900">
+          Loud the challenge rang and bellowed, like the shout of many throats
+          under the cavernous roof.
+        </p>
+        <p data-offset="8100">
+          For a moment the orcs quailed and the fiery shadow halted. Then the
+          echoes died as suddenly as a flame blown out by a dark wind, and the
+          enemy advanced again.
+        </p>
+
+        <p data-offset="8600">
+          'Over the bridge!' cried Gandalf, recalling his strength. 'Fly! This
+          is a foe beyond any of you. I must hold the narrow way. Fly!'
+        </p>
+      </div>
       <div class="gandalf-container" data-offset="9100" data-duration="500">
         <img
           src="~assets/lotr/script-normal-red.png"
@@ -337,7 +364,9 @@ export default {
         'He cannot stand alone!' cried Aragorn suddenly and ran back along the
         bridge. 'Elendil!' he shouted. 'I am with you, Gandalf!'
       </p>
-      <p class="p26" data-offset="18900">'Gondor!' cried Boromir and leaped after him.</p>
+      <p class="p26" data-offset="18900">
+        'Gondor!' cried Boromir and leaped after him.
+      </p>
       <p data-offset="19300">
         At that moment Gandalf lifted his staff, and crying aloud he smote the
         bridge before him. The staff broke asunder and fell from his hand. A
@@ -442,12 +471,44 @@ div.imfell {
   position: relative;
   z-index: 3;
   padding: 2rem;
-  font-size: 2.5rem;
   height: 160vh;
+
+  display: flex;
+  flex-direction: column;
 }
 
 .edge p {
-  margin-bottom: 2rem;
+  max-width: 20em;
+  font-size: 1.5rem;
+  margin-bottom: 6rem;
+}
+
+.edge p:nth-child(even) {
+  text-align: right;
+  align-self: flex-end;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+}
+
+.inner p {
+  margin-bottom: 8em;
+  width: 17em;
+}
+
+.inner p:nth-child(even) {
+  text-align: right;
+  align-self: flex-end;
+}
+
+.inner-text-container {
+  width: 25em;
+}
+
+.inner-text-container > p {
+  margin-bottom: 2em;
 }
 
 .balrog {
@@ -455,7 +516,9 @@ div.imfell {
 }
 
 .balrog p {
-  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2em;
+  font-size: 1.7rem;
   color: var(--lotr-grey);
 }
 
@@ -512,14 +575,14 @@ div.imfell {
 
 .text > p {
   color: var(--black);
-  transform: translateY(2em);
-  opacity: 0;
+  /* transform: translateY(2em); */
+  /* opacity: 0; */
   padding: 3em 0;
 }
 
 div > p {
   padding-top: 2rem;
-  font-size: 2.5rem;
+  font-size: 1.5rem;
 }
 
 .gandalf-container {
@@ -538,6 +601,19 @@ div > p {
   z-index: 1;
 }
 
+.wide-eyes-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.wide-eyes-text {
+  font-size: 2rem;
+  text-align: center;
+  transform: scale(1);
+}
+
 @keyframes spin {
   from {
     transform: rotate(0deg) translateX(-50%) translateY(-10%);
@@ -549,8 +625,9 @@ div > p {
 
 .gandalf {
   position: absolute;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   max-width: 80%;
   z-index: 2;
 }
@@ -610,6 +687,33 @@ div > p {
   width: 1.5em;
   height: 1.5em;
   transform: translateY(-0.2em);
+}
+
+.durin-text,
+.gandalf-muttered-text {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+}
+
+.durin-text::before,
+.gandalf-muttered-text::after {
+  content: "";
+  background-image: url("~assets/lotr/quote-mark-red.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
+  width: 2.5em;
+  height: 2.5em;
+  transform: translateY(-0.2em);
+}
+
+.gandalf-muttered-text::after {
+  width: 4.5em;
+  height: 4.5em;
 }
 
 .p18 {
@@ -715,6 +819,7 @@ div > p {
   gap: 1em;
   text-align: center;
   opacity: 0;
+  font-size: 1.5rem;
 }
 
 .fly-text::before {
