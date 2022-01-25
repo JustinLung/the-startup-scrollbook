@@ -55,6 +55,37 @@ export default {
         .addTo(controller);
     }
 
+    const p12 = gsap.to(this.$refs.p12, {
+      opacity: 1,
+      rotation: 0,
+      ease: "out",
+    });
+    const p13 = gsap.to(this.$refs.p13, {
+      opacity: 1,
+      rotation: 0,
+      ease: "out",
+    });
+    const p14 = gsap.to(this.$refs.p14, {
+      opacity: 1,
+      rotation: 0,
+      ease: "out",
+    });
+    const p15 = gsap.to(this.$refs.p15, {
+      opacity: 1,
+      rotation: 0,
+      ease: "out",
+    });
+    const rotateParagraphs = [p12, p13, p14, p15];
+    for (let i = 0; i < rotateParagraphs.length; i++) {
+      new ScrollMagic.Scene({
+        offset: 11000 + 400 * i,
+        duration: 500,
+        triggerHook: 0,
+      })
+        .setTween(rotateParagraphs[i])
+        .addTo(controller);
+    }
+
     //Remove entry graphics
     const fadeEntry = gsap.to(".entry", { opacity: 0 });
     new ScrollMagic.Scene({
@@ -83,6 +114,24 @@ export default {
       triggerHook: 0,
     })
       .setTween(fadeCave)
+      .addTo(controller);
+
+    const horn = gsap.to(".horn", { opacity: 1, x: 0 });
+    new ScrollMagic.Scene({
+      offset: 8600,
+      duration: 500,
+      triggerHook: 0,
+    })
+      .setTween(horn)
+      .addTo(controller);
+
+    const gandalf = gsap.to(".gandalf-container", { opacity: 1, x: 0 });
+    new ScrollMagic.Scene({
+      offset: 9700,
+      duration: 500,
+      triggerHook: 0,
+    })
+      .setTween(gandalf)
       .addTo(controller);
 
     //Balrog
@@ -118,6 +167,43 @@ export default {
       .setPin(".wide-eyes-container")
       .addTo(controller);
 
+    const gandalfFirm = gsap.fromTo(
+      ".gandalf-firm-container",
+      {
+        opacity: 1,
+        ease: 1,
+        scale: 1,
+      },
+      { opacity: 0, scale: 2 }
+    );
+    new ScrollMagic.Scene({
+      triggerElement: ".gandalf-firm-container",
+      duration: 1000,
+      triggerHook: 0,
+    })
+      .setTween(gandalfFirm)
+      .setPin(".gandalf-firm-container")
+      .addTo(controller);
+
+    // you cannot pass container
+    const youCannotPass = gsap.fromTo(
+      ".you-cannot-pass-container",
+      {
+        opacity: 1,
+        ease: 1,
+        scale: 1,
+      },
+      { opacity: 0, scale: 2 }
+    );
+    new ScrollMagic.Scene({
+      triggerElement: ".you-cannot-pass-container",
+      duration: 1000,
+      triggerHook: 0,
+    })
+      .setTween(youCannotPass)
+      .setPin(".you-cannot-pass-container")
+      .addTo(controller);
+
     //FadeIn Balrog
     const fadeBalrog = gsap.to(".balrog figure", { opacity: 1, scale: 1 });
     new ScrollMagic.Scene({
@@ -130,7 +216,7 @@ export default {
 
     const balrogFlame1 = gsap.to(".balrog-flame-2", { opacity: 1 });
     new ScrollMagic.Scene({
-      offset: 12000,
+      offset: 11500,
       duration: 500,
       triggerHook: 0,
     })
@@ -139,7 +225,7 @@ export default {
 
     const balrogFlame2 = gsap.to(".balrog-flame-1", { opacity: 1 });
     new ScrollMagic.Scene({
-      offset: 12650,
+      offset: 14900,
       duration: 500,
       triggerHook: 0,
     })
@@ -148,7 +234,7 @@ export default {
 
     const fadeDarkness = gsap.to(".darkness", { opacity: 0 });
     new ScrollMagic.Scene({
-      offset: 16800,
+      offset: 20300,
       duration: 500,
       triggerHook: 0,
     })
@@ -172,6 +258,8 @@ export default {
     })
       .setTween(flyText)
       .addTo(controller);
+
+    // const p12 = gsap.to()
   },
 
   methods: {},
@@ -243,38 +331,43 @@ export default {
         <p class="wide-eyes-text">Gimli stared with wide eyes.</p>
       </div>
       <div class="inner">
-        <p data-offset="6400" class="durin-text">
+        <p data-offset="7900" class="durin-text">
           'Durin's Bane!' he cried, and letting his axe fall he covered his
           face.
         </p>
-        <p data-offset="6900" class="gandalf-muttered-text">
+        <p data-offset="8300" class="gandalf-muttered-text">
           'A Balrog,' muttered Gandalf. 'Now I understand.' He faltered and
           leaned heavily on his staff. 'What an evil fortune! And I am already
           weary.'
         </p>
       </div>
       <div class="inner-text-container">
-        <p data-offset="7400" class="dark-figure-text">
-          The dark figure streaming with fire raced towards them. The orcs
-          yelled and poured over the stone gangways. Then Boromir raised his
-          horn and blew.
-        </p>
-        <p data-offset="7900">
-          Loud the challenge rang and bellowed, like the shout of many throats
-          under the cavernous roof.
-        </p>
-        <p data-offset="8100">
-          For a moment the orcs quailed and the fiery shadow halted. Then the
-          echoes died as suddenly as a flame blown out by a dark wind, and the
-          enemy advanced again.
-        </p>
+        <div>
+          <p data-offset="8600" class="dark-figure-text">
+            The dark figure streaming with fire raced towards them. The orcs
+            yelled and poured over the stone gangways. Then Boromir raised his
+            horn and blew.
+          </p>
+          <p data-offset="8900">
+            Loud the challenge rang and bellowed, like the shout of many throats
+            under the cavernous roof.
+          </p>
+          <p data-offset="9100">
+            For a moment the orcs quailed and the fiery shadow halted. Then the
+            echoes died as suddenly as a flame blown out by a dark wind, and the
+            enemy advanced again.
+          </p>
 
-        <p data-offset="8600">
-          'Over the bridge!' cried Gandalf, recalling his strength. 'Fly! This
-          is a foe beyond any of you. I must hold the narrow way. Fly!'
-        </p>
+          <p data-offset="9400">
+            'Over the bridge!' cried Gandalf, recalling his strength. 'Fly! This
+            is a foe beyond any of you. I must hold the narrow way. Fly!'
+          </p>
+        </div>
+        <figure>
+          <img src="~assets/lotr/horn.png" alt="horn" class="horn" />
+        </figure>
       </div>
-      <div class="gandalf-container" data-offset="9100" data-duration="500">
+      <div class="gandalf-container">
         <img
           src="~assets/lotr/script-normal-red.png"
           class="red-ring"
@@ -291,26 +384,31 @@ export default {
         alt="Morder Divider"
         class="morder-divider"
       />
-      <p data-offset="10300">
-        Aragorn and Boromir did not heed the command, but still held their
-        ground, side by side, behind Gandalf at the far end of the bridge.
-      </p>
-      <p data-offset="10800">
-        The others halted just within the doorway at the hall's end, and turned,
-        unable to leave their leader to face the enemy alone.
-      </p>
     </div>
     <div class="text">
-      <p data-offset="11300">
-        The Balrog reached the bridge. Gandalf stood in the middle of the span,
-        leaning on the staff in his left hand, but in his other hand Glamdring
-        gleamed, cold and white.
-      </p>
-      <p data-offset="11800">
-        His enemy halted again, facing him, and the shadow about it reached out
-        like two vast wings. It raised the whip, and the thongs whined and
-        cracked. Fire came from its nostrils. But Gandalf stood firm.
-      </p>
+      <div class="you-shall-not-pass-container">
+        <p ref="p12">
+          Aragorn and Boromir did not heed the command, but still held their
+          ground, side by side, behind Gandalf at the far end of the bridge.
+        </p>
+        <p ref="p13">
+          The others halted just within the doorway at the hall's end, and
+          turned, unable to leave their leader to face the enemy alone.
+        </p>
+        <p ref="p14">
+          The Balrog reached the bridge. Gandalf stood in the middle of the
+          span, leaning on the staff in his left hand, but in his other hand
+          Glamdring gleamed, cold and white.
+        </p>
+        <p ref="p15">
+          His enemy halted again, facing him, and the shadow about it reached
+          out like two vast wings. It raised the whip, and the thongs whined and
+          cracked. Fire came from its nostrils.
+        </p>
+      </div>
+      <div class="gandalf-firm-container">
+        <p>But Gandalf stood <span class="firm">firm</span>.</p>
+      </div>
       <figure class="balrog-flame-container">
         <img
           src="~assets/lotr/Balrog-flames-1.png"
@@ -323,15 +421,19 @@ export default {
           alt="Balrog Flames"
         />
       </figure>
-      <p data-offset="13500" class="p16">'You cannot pass,' he said.</p>
-      <p data-offset="13800">The orcs stood still, and a dead silence fell.</p>
+      <div class="you-cannot-pass-container">
+        <p data-offset="13500" class="p16">'You cannot pass,' he said.</p>
+      </div>
+      <p data-offset="13800" class="p17">
+        The orcs stood still, and a dead silence fell.
+      </p>
       <p data-offset="14100" class="p18">
         'I am a servant of the Secret Fire, wielder of the flame of Anor. You
         cannot pass. The dark fire will not avail you, flame of Udûn. Go back to
         the Shadow! You cannot pass.'
       </p>
     </div>
-    <div class="darkness" data-offset="15000" data-duration="500">
+    <div class="darkness" data-offset="18900" data-duration="500">
       <FireParticles />
       <p data-offset="15300">
         The Balrog made no answer. The fire in it seemed to die, but the
@@ -367,25 +469,28 @@ export default {
       <p class="p26" data-offset="18900">
         'Gondor!' cried Boromir and leaped after him.
       </p>
-      <p data-offset="19300">
-        At that moment Gandalf lifted his staff, and crying aloud he smote the
-        bridge before him. The staff broke asunder and fell from his hand. A
-        blinding sheet of white flame sprang up.
-      </p>
-      <p data-offset="19700">
-        The bridge cracked. Right at the Balrog's feet it broke, and the stone
-        upon which it stood crashed into the gulf, while the rest remained,
-        poised, quivering like a tongue of rock thrust out into emptiness.
-      </p>
-      <p data-offset="20300">
-        With a terrible cry the Balrog fell forward, and its shadow plunged down
-        and vanished.
-      </p>
-      <p data-offset="20700">
-        But even as it fell it swung its whip, and the thongs lashed and curled
-        about the wizard's knees, dragging him to the brink. He staggered and
-        fell, grasped vainly at the stone, and slid into the abyss.
-      </p>
+      <div class="inner">
+        <p data-offset="19300">
+          At that moment Gandalf lifted his staff, and crying aloud he smote the
+          bridge before him. The staff broke asunder and fell from his hand. A
+          blinding sheet of white flame sprang up.
+        </p>
+        <p data-offset="19700">
+          The bridge cracked. Right at the Balrog's feet it broke, and the stone
+          upon which it stood crashed into the gulf, while the rest remained,
+          poised, quivering like a tongue of rock thrust out into emptiness.
+        </p>
+        <p data-offset="20300">
+          With a terrible cry the Balrog fell forward, and its shadow plunged
+          down and vanished.
+        </p>
+        <p data-offset="20700">
+          But even as it fell it swung its whip, and the thongs lashed and
+          curled about the wizard's knees, dragging him to the brink. He
+          staggered and fell, grasped vainly at the stone, and slid into the
+          abyss.
+        </p>
+      </div>
     </div>
     <div class="fly text">
       <img src="~assets/lotr/ring.png" alt="Ring" class="ring" />
@@ -488,27 +593,55 @@ div.imfell {
   align-self: flex-end;
 }
 
-.inner {
+.inner,
+.you-shall-not-pass-container {
   display: flex;
   flex-direction: column;
 }
 
-.inner p {
+.inner p,
+.you-shall-not-pass-container p,
+.darkness p {
   margin-bottom: 8em;
   width: 17em;
 }
 
-.inner p:nth-child(even) {
+.inner p:nth-child(even),
+.you-shall-not-pass-container p:nth-child(even),
+.darkness p:nth-child(even) {
   text-align: right;
   align-self: flex-end;
 }
 
+.you-shall-not-pass-container p:nth-child(even) {
+  opacity: 0;
+  transform: rotate(-90deg);
+}
+
+.you-shall-not-pass-container p:nth-child(odd) {
+  opacity: 0;
+  transform: rotate(90deg);
+}
+
+.darkness p:last-child {
+  text-align: center;
+  font-size: 2.5rem;
+  margin: 0 auto;
+}
+
 .inner-text-container {
-  width: 25em;
+  display: flex;
 }
 
 .inner-text-container > p {
-  margin-bottom: 2em;
+  margin-bottom: 4em;
+}
+
+.horn {
+  opacity: 0;
+  width: 15em;
+  transform: translateX(5em);
+  margin-top: 2em;
 }
 
 .balrog {
@@ -575,17 +708,18 @@ div.imfell {
 
 .text > p {
   color: var(--black);
-  /* transform: translateY(2em); */
-  /* opacity: 0; */
+  transform: translateY(2em);
+  opacity: 0;
   padding: 3em 0;
 }
 
 div > p {
-  padding-top: 2rem;
+  padding-top: 4rem;
   font-size: 1.5rem;
 }
 
 .gandalf-container {
+  transform: translateX(-5em);
   opacity: 0;
 }
 
@@ -601,17 +735,24 @@ div > p {
   z-index: 1;
 }
 
-.wide-eyes-container {
+.wide-eyes-container,
+.gandalf-firm-container,
+.you-cannot-pass-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
 
-.wide-eyes-text {
+.wide-eyes-text,
+.gandalf-firm-container p {
   font-size: 2rem;
   text-align: center;
   transform: scale(1);
+}
+
+.firm {
+  text-decoration: underline;
 }
 
 @keyframes spin {
@@ -715,7 +856,6 @@ div > p {
   width: 4.5em;
   height: 4.5em;
 }
-
 .p18 {
   display: flex;
   flex-direction: column;
@@ -750,7 +890,6 @@ div > p {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
 }
 
 .darkness > canvas {
@@ -759,9 +898,7 @@ div > p {
 }
 
 .darkness > p {
-  padding: 0.5em 0;
   color: var(--lotr-grey);
-  opacity: 0;
 }
 
 .p23 {
