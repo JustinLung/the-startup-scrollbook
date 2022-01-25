@@ -1,11 +1,13 @@
 <script>
 export default {
   layout: "the-shining",
+  data: ()=>{
+    return {height: 0}
+  },
   mounted: function() {
 
-    window.addEventListener("scroll", ()=>{
-      console.log(window.scrollY)
-    })
+    window.addEventListener("load", this.resize)
+    window.addEventListener("resize", this.resize)
 
     const controller = new ScrollMagic.Controller();
 
@@ -64,8 +66,8 @@ export default {
 
     const doorShut = gsap.to(".paragraph1 .door", {rotateY: 0, ease: Power1.easeIn})
     new ScrollMagic.Scene({
-      offset: 5300,
-      duration: 100,
+      offset: 5200,
+      duration: this.height * .1,
       triggerHook: 0
     })
     .setTween(doorShut)
@@ -78,7 +80,7 @@ export default {
       const fade = gsap.to(p[i], {opacity: 1})
       new ScrollMagic.Scene({
         offset: p[i].dataset.offset,
-        duration: 200,
+        duration: this.height * .3,
         triggerHook: 0
       })
       .setTween(fade)
@@ -88,13 +90,59 @@ export default {
     //Mallet against door
     const mallet = gsap.to(".paragraph1 .mallet", {opacity: 1, rotate: 0, left: 0})
     new ScrollMagic.Scene({
-      offset: 5400,
-      duration: 200,
+      offset: 5300,
+      duration: this.height * .2,
       triggerHook: 0
     })
     .setTween(mallet)
     .addTo(controller)
 
+    //shake in on door
+    const shake = gsap.timeline()
+    .to(".keyhole", {x: "-3%", y: "1%"})
+    .to(".keyhole", {x: "3%", y: "1%"})
+    .to(".keyhole", {x: "-3%", y: "-1%"})
+    .to(".keyhole", {x: "3%", y: "-1%"})
+    .to(".keyhole", {x: "-3%", y: "1%"})
+    .to(".keyhole", {x: "0%", y: "0%"})
+    new ScrollMagic.Scene({
+      triggerElement: ".door-text",
+      triggerHook: 0,
+      duration: 1000,
+    })
+    .setPin('.door-text')
+    .setTween(shake)
+    .addTo(controller)
+
+    //Turn around
+    const turn = gsap.fromTo(".turn", {rotateY: -90}, {rotateY: 0})
+    new ScrollMagic.Scene({
+      triggerHook: 0,
+      offset: 7200,
+      duration: this.height * .15
+    })
+    .setTween(turn)
+    .addTo(controller)
+
+    //Door break
+    const doorBreak = gsap.timeline()
+    .to(".door-break .mallet", {rotate: 0, left: 0, opacity: 1}, "door")
+    .to(".door-break .door-hole", {opacity: 1, delay: .3,}, "door")
+
+    new ScrollMagic.Scene({
+      triggerHook: 0,
+      triggerElement: ".door-break",
+      duration: 1000,
+    })
+    .setPin(".door-break")
+    .setTween(doorBreak)
+    .addTo(controller)
+
+  },
+  methods: {
+    resize() {
+      this.height = window.innerHeight
+    }
   }
 }
 </script>
@@ -130,65 +178,72 @@ export default {
       <p data-offset="4500">
         She caught the edge of the dresser, held herself up against it, and grabbed the doorframe.
       </p>
-      <p data-offset="4600" class="dont-shut-text">
+      <p data-offset="4700" class="dont-shut-text">
         Jack shouted at her:<br>“Don't you shut that door! Goddam you, don't you dare shut it!”
       </p>
       <div class="door-text">
-        <p data-offset="4700">
+        <p data-offset="4900">
           She slammed it closed and shot the bolt.
           Her left hand pawed wildly at the junk on the dresser, knocking loose coins onto the floor where they rolled in every direction.
           Her hand seized the key ring just as the mallet whistled down against the door, making it tremble in its frame.
         </p>
-        <div class="door-container" data-offset="4800">
+        <div class="door-container keyhole" data-offset="4900">
           <img src="~assets/the-shining/mallet.png" alt="Mallet" class="mallet">
           <img src="~assets/the-shining/door.svg" class="door" alt="Door" />
           <img src="~assets/the-shining/door-frame.svg" alt="Door frame" />
         </div>
+        <p data-offset="5400">
+          She got the key into the lock on the second stab and twisted it to the right. At the sound of the tumblers falling, Jack screamed.
+          The mallet came down against the door in a volley of booming blows that made her flinch and step back.
+          How could he be doing that with a knife in his back? Where was he finding the strength?
+          She wanted to shriek Why aren't you dead? at the locked door.
+        </p>
       </div>
-      <p data-offset="4900">
-        She got the key into the lock on the second stab and twisted it to the right. At the sound of the tumblers falling, Jack screamed.
-        The mallet came down against the door in a volley of booming blows that made her flinch and step back.
-        How could he be doing that with a knife in his back? Where was he finding the strength?
-        She wanted to shriek Why aren't you dead? at the locked door.
+      <p data-offset="7100" class="turn">
+        Instead she turned around. 
       </p>
-      <p data-offset="5000">
-        Instead she turned around. She and Danny would have to go into the attached bathroom and lock that door, too, in case Jack actually could break through the bedroom door.
+      <p data-offset="7300">
+        She and Danny would have to go into the attached bathroom and lock that door, too, in case Jack actually could break through the bedroom door.
         The thought of escaping down the dumbwaiter shaft crossed her mind in a wild burst, and then she rejected it. Danny was small enough to fit into it, but she would be unable to control the rope pull.
         He might go crashing all the way to the bottom.
       </p>
-      <p data-offset="5100">
-        Instead she turned around. She and Danny would have to go into the attached bathroom and lock that door, too, in case Jack actually could break through the bedroom door.
-        The thought of escaping down the dumbwaiter shaft crossed her mind in a wild burst, and then she rejected it. Danny was small enough to fit into it, but she would be unable to control the rope pull.
-        He might go crashing all the way to the bottom.
-      </p>
-      <p data-offset="5200">
+      <p data-offset="7400">
         The bathroom it would have to be. And if Jack broke through into there—
         But she wouldn't allow herself to think of it.
         “Danny, honey, you'll have to wake up n—”
         But the bed was empty.
       </p>
-      <p data-offset="5300">
+      <p data-offset="7600">
         When he had begun to sleep more soundly, she had thrown the blankets and one of the quilts over him. Now they were thrown back. 
       </p>
-      <p data-offset="5400">
+      <p data-offset="7700">
         “I'll get you!” Jack howled. “I'll get both of you!” Every other word was punctuated with a blow from the roque hammer, yet Wendy ignored both. All of her attention was focused on that empty bed.
       </p>
-      <p data-offset="5500">
+      <p data-offset="7800">
         “Come out here! Unlock this goddam door!”
       </p>
-      <p data-offset="5600">
+      <p data-offset="7900">
         “Danny?” she whispered.
       </p>
-      <p data-offset="5700">
+      <p data-offset="8000">
         Of course… when Jack had attacked her. It had come through to him, as violent emotions always seemed to. Perhaps he'd even seen the whole thing in a nightmare. He was hiding.
       </p>
-      <p data-offset="5800">>
+      <p data-offset="6600">
         She fell clumsily to her knees, enduring another bolt of pain from her swollen and bleeding leg, and looked under the bed. Nothing there but dustballs and Jack’s bedroom slippers.
       </p>
-      <p data-offset="5900">>
+      <div class="door-break">
+        <p data-offset="6700">
         Jack screamed her name, and this time when he swung the mallet, a long splinter of wood jumped from the door and clattered off the hardwood planking, The next blow brought a sickening, splintering crack, the sound of dry kindling under a hatchet. The bloody mallet head, now splintered and gouged in its own right, bashed through the new hole in the door, was withdrawn, and came down again, sending wooden shrapnel flying across the room.
       </p>
-      <p data-offset="6000">>
+        <div class="door-container">
+          <img src="~assets/the-shining/mallet.png" alt="Mallet" class="mallet">
+          <img src="~assets/the-shining/door.svg" class="door" alt="Door" />
+          <img src="~assets/the-shining/door-frame.svg" alt="Door frame" />
+          <img src="~assets/the-shining/shining-door-break.png" class="door-hole" alt="">
+          <img src="~assets/the-shining/door-mask.png" alt="">
+        </div>
+      </div>
+      <p data-offset="6800">
         Wendy pulled herself to her feet again using the foot of the bed, and hobbled across the room to the closet. Her broken ribs stabbed at her, making her groan.
         “Danny?”
       </p>
@@ -300,7 +355,6 @@ p {
   width: 35%;
   right: 5%;
   top: -30%;
-  /* transform:rotate(45deg); */
   transform-origin: 50% 0%;
   clip-path: inset(0% 0% 100% 0%);
 }
@@ -313,13 +367,47 @@ p {
 .door-text {
   display: flex;
   align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.door-text > p {
+  min-width: 30em;
 }
 
 .paragraph1 .door-container {
   position: relative;
   width: 10em;
-  align-self: center;
   margin-bottom: 5rem;
+}
+
+.door-break {
+  margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.door-break .door-hole {
+  opacity: 0;
+}
+
+.door-break > p {
+  min-width: 30em;
+}
+
+.door-break .door-container {
+  position: relative;
+  width: 15em;
+  align-self: center;
+}
+
+.door-break .door-container .door {
+  transform: rotateY(0) !important;
 }
 
 .paragraph1 .door-container img {
@@ -330,6 +418,22 @@ p {
   position: absolute;
   left: 0;
   top: 0;
+}
+
+.paragraph1 .door-break .door-container img:last-child {
+  position: relative;
+  z-index: 2;
+}
+
+.door-break .door-container img:not(:last-child) {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.paragraph1 .door-break .door-container .mallet {
+  width: 13em;
+  top: 40%;
 }
 
 .paragraph1 .door-container .door {
