@@ -63,7 +63,6 @@ export default {
     })
     .setTween(claw)
     .addTo(controller)
-
     const doorShut = gsap.to(".paragraph1 .door", {rotateY: 0, ease: Power1.easeIn})
     new ScrollMagic.Scene({
       offset: 5200,
@@ -88,7 +87,7 @@ export default {
     }
 
     //Mallet against door
-    const mallet = gsap.to(".paragraph1 .mallet", {opacity: 1, rotate: 0, left: 0})
+    const mallet = gsap.to(".paragraph1 .door-text .mallet", {opacity: 1, rotate: 0, left: 0})
     new ScrollMagic.Scene({
       offset: 5300,
       duration: this.height * .2,
@@ -127,14 +126,13 @@ export default {
     //Door break
     const doorBreak = gsap.timeline()
     .to(".door-break .mallet", {rotate: 0, left: 0, opacity: 1}, "door")
-    .to(".door-break .door-hole", {opacity: 1, delay: .3,}, "door")
+    .to(".door-break .door-hole", {opacity: 1, delay: .3}, "door")
 
     new ScrollMagic.Scene({
       triggerHook: 0,
-      triggerElement: ".door-break",
-      duration: 1000,
+      offset: 9500,
+      duration: this.height,
     })
-    .setPin(".door-break")
     .setTween(doorBreak)
     .addTo(controller)
 
@@ -171,9 +169,12 @@ export default {
       <p data-offset="4300">
         (Danny! O Jesus)
         She forced herself to her knees and then clawed her way to her feet, fingers slipping over the silk wallpaper.
-        Her nails pulled little strips of it loose. She ignored the pain and half-walked, half-shambled through the doorway as Jack came around the far corner and began to lunge his way down toward the open door, leaning on the roque mallet.
+        Her nails pulled little strips of it loose.
       </p>
       <img class="scratch" src="~assets/the-shining/claw_nails.png" alt="Scratched surface">
+      <p data-offset="4450">
+        She ignored the pain and half-walked, half-shambled through the doorway as Jack came around the far corner and began to lunge his way down toward the open door, leaning on the roque mallet.
+      </p>
       </div>
       <p data-offset="4500">
         She caught the edge of the dresser, held herself up against it, and grabbed the doorframe.
@@ -185,6 +186,8 @@ export default {
         <p data-offset="4900">
           She slammed it closed and shot the bolt.
           Her left hand pawed wildly at the junk on the dresser, knocking loose coins onto the floor where they rolled in every direction.
+        </p>
+        <p data-offset="4900">
           Her hand seized the key ring just as the mallet whistled down against the door, making it tremble in its frame.
         </p>
         <div class="door-container keyhole" data-offset="4900">
@@ -192,13 +195,13 @@ export default {
           <img src="~assets/the-shining/door.svg" class="door" alt="Door" />
           <img src="~assets/the-shining/door-frame.svg" alt="Door frame" />
         </div>
-        <p data-offset="5400">
+      </div>
+      <p data-offset="5400">
           She got the key into the lock on the second stab and twisted it to the right. At the sound of the tumblers falling, Jack screamed.
           The mallet came down against the door in a volley of booming blows that made her flinch and step back.
           How could he be doing that with a knife in his back? Where was he finding the strength?
           She wanted to shriek Why aren't you dead? at the locked door.
-        </p>
-      </div>
+      </p>
       <p data-offset="7100" class="turn">
         Instead she turned around. 
       </p>
@@ -232,15 +235,20 @@ export default {
         She fell clumsily to her knees, enduring another bolt of pain from her swollen and bleeding leg, and looked under the bed. Nothing there but dustballs and Jack’s bedroom slippers.
       </p>
       <div class="door-break">
-        <p data-offset="6700">
-        Jack screamed her name, and this time when he swung the mallet, a long splinter of wood jumped from the door and clattered off the hardwood planking, The next blow brought a sickening, splintering crack, the sound of dry kindling under a hatchet. The bloody mallet head, now splintered and gouged in its own right, bashed through the new hole in the door, was withdrawn, and came down again, sending wooden shrapnel flying across the room.
-      </p>
         <div class="door-container">
-          <img src="~assets/the-shining/mallet.png" alt="Mallet" class="mallet">
+          <img src="~assets/the-shining/mallet-flipped.png" alt="Mallet" class="mallet">
           <img src="~assets/the-shining/door.svg" class="door" alt="Door" />
           <img src="~assets/the-shining/door-frame.svg" alt="Door frame" />
-          <img src="~assets/the-shining/shining-door-break.png" class="door-hole" alt="">
-          <img src="~assets/the-shining/door-mask.png" alt="">
+          <img src="~assets/the-shining/shining-door-break.png" class="door-hole" alt="Door hole">
+          <img src="~assets/the-shining/door-mask2.png" alt="">
+        </div>
+        <div>
+        <p data-offset="9000">
+          Jack screamed her name, and this time when he swung the mallet, a long splinter of wood jumped from the door and clattered off the hardwood planking, The next blow brought a sickening, splintering crack, the sound of dry kindling under a hatchet.
+        </p>
+        <p data-offset="9000">
+          The bloody mallet head, now splintered and gouged in its own right, bashed through the new hole in the door, was withdrawn, and came down again, sending wooden shrapnel flying across the room.
+        </p>
         </div>
       </div>
       <p data-offset="6800">
@@ -325,8 +333,8 @@ export default {
 }
 
 p {
-  font-size: 1.125rem;
-  max-width: 30em;
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  max-width: 30rem;
 }
 
 .text {
@@ -378,35 +386,41 @@ p {
 }
 
 .door-text > p {
-  min-width: 30em;
+  width: 30em;
 }
 
 .paragraph1 .door-container {
   position: relative;
-  width: 10em;
+  width: 15em;
   margin-bottom: 5rem;
 }
 
 .door-break {
-  margin: 0 auto;
+  margin-left: auto;
   height: 100vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
+  gap: 1em;
+}
+
+.door-break p {
+  max-width: auto;
+}
+
+.door-break div {
+    flex: 1;
 }
 
 .door-break .door-hole {
   opacity: 0;
 }
 
-.door-break > p {
-  min-width: 30em;
-}
-
 .door-break .door-container {
   position: relative;
-  width: 15em;
+  flex: 1;
+  height: 110vh;
   align-self: center;
 }
 
@@ -414,7 +428,11 @@ p {
   transform: rotateY(0) !important;
 }
 
-.paragraph1 .door-container img {
+.door-break .door-container img:not(.mallet) {
+  height: 110vh;
+}
+
+.paragraph1 .door-text .door-container img {
   width: 100%;
 }
 
@@ -425,19 +443,30 @@ p {
 }
 
 .paragraph1 .door-break .door-container img:last-child {
-  position: relative;
+  position: absolute;
+  right: 0;
+  left: unset;
   z-index: 2;
 }
 
 .door-break .door-container img:not(:last-child) {
   position: absolute;
-  left: 0;
+  right: 0;
   top: 0;
 }
 
+.door-break div:not(.door-container) {
+  position: relative;
+  z-index: 5;
+}
+
 .paragraph1 .door-break .door-container .mallet {
-  width: 13em;
-  top: 40%;
+  width: 55vw;
+  top: 21%;
+  z-index: 2;
+  transform: rotateZ(85deg);
+  opacity: 0;
+  left: 18%;
 }
 
 .paragraph1 .door-container .door {
@@ -445,10 +474,10 @@ p {
   transform-origin: 5% 50%;
 }
 
-.paragraph1 .door-container .mallet {
+.paragraph1  .door-text .door-container .mallet {
   position: absolute;
   z-index: 2;
-  width: 8em;
+  width: 12em;
   top: 45%;
   transform: translate(-10%, -50%) rotate(-90deg);
   left: -50%;
