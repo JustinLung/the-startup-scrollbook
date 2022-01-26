@@ -225,7 +225,7 @@ export default {
 
     const balrogFlame2 = gsap.to(".balrog-flame-1", { opacity: 1 });
     new ScrollMagic.Scene({
-      offset: 14900,
+      offset: 14700,
       duration: 500,
       triggerHook: 0,
     })
@@ -785,7 +785,7 @@ div > p {
 }
 
 .balrog-flame-container > img {
-  width: 95%;
+  width: 150%;
   margin: 0 auto;
 
   position: absolute;
@@ -801,9 +801,9 @@ div > p {
 
 .balrog-flame-container > img:first-child {
   position: relative;
-  left: 1em;
+  left: 50%;
   top: 0;
-  transform: translate(0, 0);
+  transform: translate(-50%, 0);
   z-index: 2;
 }
 
