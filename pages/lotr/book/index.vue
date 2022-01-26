@@ -1,7 +1,14 @@
 <script>
 export default {
+  layout: "the-shining",
+  data: () => {
+    return { height: 0 };
+  },
   layout: "lotr",
   mounted: function () {
+    window.addEventListener("load", this.resize);
+    window.addEventListener("resize", this.resize);
+
     const controller = new ScrollMagic.Controller();
 
     //Landings animation
@@ -48,7 +55,9 @@ export default {
       const fade = gsap.to(p[i], { opacity: 1, y: 0 });
       new ScrollMagic.Scene({
         offset: p[i].dataset.offset,
-        duration: p[i].dataset.duration ? p[i].dataset.duration : 200,
+        duration: p[i].dataset.duration
+          ? p[i].dataset.duration
+          : this.height * 0.15,
         triggerHook: 0,
       })
         .setTween(fade)
@@ -78,8 +87,8 @@ export default {
     const rotateParagraphs = [p12, p13, p14, p15];
     for (let i = 0; i < rotateParagraphs.length; i++) {
       new ScrollMagic.Scene({
-        offset: 11000 + 400 * i,
-        duration: 500,
+        offset: 10500 + 200 * i,
+        duration: this.height * 0.15,
         triggerHook: 0,
       })
         .setTween(rotateParagraphs[i])
@@ -100,7 +109,7 @@ export default {
     const begoneParticles = gsap.to(this.$refs.particles.$el, { opacity: 0 });
     new ScrollMagic.Scene({
       offset: 4400,
-      duration: 500,
+      duration: this.height * 0.4,
       triggerHook: 0,
     })
       .setTween(begoneParticles)
@@ -110,7 +119,7 @@ export default {
     const fadeCave = gsap.to(".cave", { opacity: 0 });
     new ScrollMagic.Scene({
       offset: 4700,
-      duration: 500,
+      duration: this.height * 0.4,
       triggerHook: 0,
     })
       .setTween(fadeCave)
@@ -118,8 +127,8 @@ export default {
 
     const horn = gsap.to(".horn", { opacity: 1, x: 0 });
     new ScrollMagic.Scene({
-      offset: 8600,
-      duration: 500,
+      offset: 8150,
+      duration: this.height * 0.4,
       triggerHook: 0,
     })
       .setTween(horn)
@@ -127,8 +136,8 @@ export default {
 
     const gandalf = gsap.to(".gandalf-container", { opacity: 1, x: 0 });
     new ScrollMagic.Scene({
-      offset: 9700,
-      duration: 500,
+      offset: 9000,
+      duration: this.height * 0.4,
       triggerHook: 0,
     })
       .setTween(gandalf)
@@ -160,7 +169,7 @@ export default {
     );
     new ScrollMagic.Scene({
       triggerElement: ".wide-eyes-container",
-      duration: 1000,
+      duration: this.height * 0.9,
       triggerHook: 0,
     })
       .setTween(wideEyesText)
@@ -178,7 +187,7 @@ export default {
     );
     new ScrollMagic.Scene({
       triggerElement: ".gandalf-firm-container",
-      duration: 1000,
+      duration: this.height * 0.9,
       triggerHook: 0,
     })
       .setTween(gandalfFirm)
@@ -197,7 +206,7 @@ export default {
     );
     new ScrollMagic.Scene({
       triggerElement: ".you-cannot-pass-container",
-      duration: 1000,
+      duration: this.height * 0.9,
       triggerHook: 0,
     })
       .setTween(youCannotPass)
@@ -208,7 +217,7 @@ export default {
     const fadeBalrog = gsap.to(".balrog figure", { opacity: 1, scale: 1 });
     new ScrollMagic.Scene({
       offset: 5300,
-      duration: 500,
+      duration: this.height * 0.4,
       triggerHook: 0,
     })
       .setTween(fadeBalrog)
@@ -217,7 +226,7 @@ export default {
     const balrogFlame1 = gsap.to(".balrog-flame-2", { opacity: 1 });
     new ScrollMagic.Scene({
       offset: 11500,
-      duration: 500,
+      duration: this.height * 0.4,
       triggerHook: 0,
     })
       .setTween(balrogFlame1)
@@ -225,17 +234,38 @@ export default {
 
     const balrogFlame2 = gsap.to(".balrog-flame-1", { opacity: 1 });
     new ScrollMagic.Scene({
-      offset: 14700,
-      duration: 500,
+      offset: 13400,
+      duration: this.height * 0.35,
       triggerHook: 0,
     })
       .setTween(balrogFlame2)
       .addTo(controller);
 
+    const darkness = gsap.to(".darkness", { opacity: 1 });
+    new ScrollMagic.Scene({
+      offset: 16150,
+      duration: this.height * 0.2,
+      triggerHook: 0,
+    })
+      .setTween(darkness)
+      .addTo(controller);
+
+    const p23 = gsap.to(".p23", {
+      opacity: 1,
+      x: 0,
+    });
+    new ScrollMagic.Scene({
+      offset: 18700,
+      duration: this.height * 0.2,
+      triggerHook: 0,
+    })
+      .setTween(p23)
+      .addTo(controller);
+
     const fadeDarkness = gsap.to(".darkness", { opacity: 0 });
     new ScrollMagic.Scene({
-      offset: 20300,
-      duration: 500,
+      offset: 17900,
+      duration: this.height * 0.4,
       triggerHook: 0,
     })
       .setTween(fadeDarkness)
@@ -244,7 +274,7 @@ export default {
     const fly = gsap.to(".ring", { opacity: 1, y: 0 });
     new ScrollMagic.Scene({
       offset: 21400,
-      duration: 500,
+      duration: this.height * 0.4,
       triggerHook: 0,
     })
       .setTween(fly)
@@ -253,7 +283,7 @@ export default {
     const flyText = gsap.to(".fly-text", { opacity: 1, y: 0 });
     new ScrollMagic.Scene({
       offset: 21700,
-      duration: 500,
+      duration: this.height * 0.4,
       triggerHook: 0,
     })
       .setTween(flyText)
@@ -262,7 +292,11 @@ export default {
     // const p12 = gsap.to()
   },
 
-  methods: {},
+  methods: {
+    resize() {
+      this.height = window.innerHeight;
+    },
+  },
 };
 </script>
 
@@ -331,11 +365,11 @@ export default {
         <p class="wide-eyes-text">Gimli stared with wide eyes.</p>
       </div>
       <div class="inner">
-        <p data-offset="7900" class="durin-text">
+        <p data-offset="7300" class="durin-text">
           'Durin's Bane!' he cried, and letting his axe fall he covered his
           face.
         </p>
-        <p data-offset="8300" class="gandalf-muttered-text">
+        <p data-offset="7600" class="gandalf-muttered-text">
           'A Balrog,' muttered Gandalf. 'Now I understand.' He faltered and
           leaned heavily on his staff. 'What an evil fortune! And I am already
           weary.'
@@ -343,22 +377,22 @@ export default {
       </div>
       <div class="inner-text-container">
         <div>
-          <p data-offset="8600" class="dark-figure-text">
+          <p data-offset="7900" class="dark-figure-text">
             The dark figure streaming with fire raced towards them. The orcs
             yelled and poured over the stone gangways. Then Boromir raised his
             horn and blew.
           </p>
-          <p data-offset="8900">
+          <p data-offset="8200">
             Loud the challenge rang and bellowed, like the shout of many throats
             under the cavernous roof.
           </p>
-          <p data-offset="9100">
+          <p data-offset="8400">
             For a moment the orcs quailed and the fiery shadow halted. Then the
             echoes died as suddenly as a flame blown out by a dark wind, and the
             enemy advanced again.
           </p>
 
-          <p data-offset="9400">
+          <p data-offset="8600">
             'Over the bridge!' cried Gandalf, recalling his strength. 'Fly! This
             is a foe beyond any of you. I must hold the narrow way. Fly!'
           </p>
@@ -424,58 +458,58 @@ export default {
       <div class="you-cannot-pass-container">
         <p data-offset="13500" class="p16">'You cannot pass,' he said.</p>
       </div>
-      <p data-offset="13800" class="p17">
+      <p data-offset="15400" class="p17">
         The orcs stood still, and a dead silence fell.
       </p>
-      <p data-offset="14100" class="p18">
+      <p data-offset="15650" class="p18">
         'I am a servant of the Secret Fire, wielder of the flame of Anor. You
         cannot pass. The dark fire will not avail you, flame of Udûn. Go back to
         the Shadow! You cannot pass.'
       </p>
     </div>
-    <div class="darkness" data-offset="18900" data-duration="500">
+    <div class="darkness">
       <FireParticles />
-      <p data-offset="15300">
+      <p data-offset="16800">
         The Balrog made no answer. The fire in it seemed to die, but the
         darkness grew. It stepped forward slowly on to the bridge, and suddenly
         it drew itself up to a great height, and its wings were spread from wall
         to wall;
       </p>
-      <p data-offset="15600">
+      <p data-offset="17000">
         but still Gandalf could be seen, glimmering in the gloom; he seemed
         small, and altogether alone: grey and bent, like a wizened tree before
         the onset of a storm.
       </p>
-      <p data-offset="15900">
+      <p data-offset="17300">
         From out of the shadow a red sword leaped flaming. Glamdring glittered
         white in answer. There was a ringing clash and a stab of white fire.
       </p>
-      <p data-offset="16100">
+      <p data-offset="17700">
         The Balrog fell back, and its sword flew up in molten fragments. The
         wizard swayed on the bridge, stepped back a pace, and then again stood
         still.
       </p>
     </div>
     <div class="text">
-      <p class="p23" data-offset="18000">'You cannot pass!' he said.</p>
-      <p data-offset="18300">
+      <p class="p23">'You cannot pass!' he said.</p>
+      <p data-offset="19000">
         With a bound the Balrog leaped full upon the bridge. Its whip whirled
         and hissed.
       </p>
-      <p data-offset="18600">
+      <p data-offset="19300">
         'He cannot stand alone!' cried Aragorn suddenly and ran back along the
         bridge. 'Elendil!' he shouted. 'I am with you, Gandalf!'
       </p>
-      <p class="p26" data-offset="18900">
+      <p class="p26" data-offset="19600">
         'Gondor!' cried Boromir and leaped after him.
       </p>
       <div class="inner">
-        <p data-offset="19300">
+        <p data-offset="19900">
           At that moment Gandalf lifted his staff, and crying aloud he smote the
           bridge before him. The staff broke asunder and fell from his hand. A
           blinding sheet of white flame sprang up.
         </p>
-        <p data-offset="19700">
+        <p data-offset="20100">
           The bridge cracked. Right at the Balrog's feet it broke, and the stone
           upon which it stood crashed into the gulf, while the rest remained,
           poised, quivering like a tongue of rock thrust out into emptiness.
@@ -484,7 +518,7 @@ export default {
           With a terrible cry the Balrog fell forward, and its shadow plunged
           down and vanished.
         </p>
-        <p data-offset="20700">
+        <p data-offset="20600">
           But even as it fell it swung its whip, and the thongs lashed and
           curled about the wizard's knees, dragging him to the brink. He
           staggered and fell, grasped vainly at the stone, and slid into the
@@ -907,6 +941,8 @@ div > p {
   justify-content: center;
   gap: 1em;
   text-align: center;
+  transform: translateX(-2em);
+  opacity: 0;
 }
 
 .p23::before {
