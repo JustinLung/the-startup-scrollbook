@@ -63,14 +63,6 @@ export default {
     })
     .setTween(claw)
     .addTo(controller)
-    const doorShut = gsap.to(".paragraph1 .door", {rotateY: 0, ease: Power1.easeIn})
-    new ScrollMagic.Scene({
-      offset: 5200,
-      duration: this.height * .1,
-      triggerHook: 0
-    })
-    .setTween(doorShut)
-    .addTo(controller)
 
     //Text animations
     const p = document.querySelectorAll('[data-offset]')
@@ -86,18 +78,10 @@ export default {
       .addTo(controller)
     }
 
-    //Mallet against door
-    const mallet = gsap.to(".paragraph1 .door-text .mallet", {opacity: 1, rotate: 0, left: 0})
-    new ScrollMagic.Scene({
-      offset: 5300,
-      duration: this.height * .2,
-      triggerHook: 0
-    })
-    .setTween(mallet)
-    .addTo(controller)
-
     //shake in on door
     const shake = gsap.timeline()
+    .to(".door-text .door", {rotateY: 0})
+    .to(".door-text .mallet", {opacity: 1, rotate: 0, left: "-25%"})
     .to(".keyhole", {x: "-3%", y: "1%"})
     .to(".keyhole", {x: "3%", y: "1%"})
     .to(".keyhole", {x: "-3%", y: "-1%"})
@@ -123,17 +107,47 @@ export default {
     .setTween(turn)
     .addTo(controller)
 
-    //Door break
-    const doorBreak = gsap.timeline()
-    .to(".door-break .mallet", {rotate: 0, left: 0, opacity: 1}, "door")
-    .to(".door-break .door-hole", {opacity: 1, delay: .3}, "door")
+    //Bed fade
+    const bed = gsap.timeline()
+    .to(".bed", {opacity: 1})
+    .to(".bed-container p:last-child", {opacity: 1, scale: 1.3})
 
     new ScrollMagic.Scene({
+      triggerElement: ".bed-container",
       triggerHook: 0,
-      offset: 9500,
-      duration: this.height,
+      duration: 1200
     })
-    .setTween(doorBreak)
+    .setTween(bed)
+    .setPin(".bed-container")
+    .addTo(controller)
+
+    //Door break
+    const breakDoor = gsap.timeline()
+    .to('.door-break div:last-child', {opacity: 1})
+    .to('.door-break .door-container', {opacity: 1})
+    .to('.door-break .mallet', {opacity: 1, rotate: 0, right: "-23%"})
+
+    new ScrollMagic.Scene({
+      triggerElement: ".door-break",
+      triggerHook: 0,
+      duration: 1000
+    })
+    .setTween(breakDoor)
+    .setPin(".door-break")
+    .addTo(controller)
+
+    //Whisper
+    const whisper = gsap.timeline()
+    .to(".whisper > p", {scale: 2}, "whisper")
+    .to(".whisper > p", {opacity: 0, delay: .3}, "whisper")
+
+    new ScrollMagic.Scene({
+      triggerElement: ".whisper",
+      triggerHook: 0,
+      duration: 1000
+    })
+    .setTween(whisper)
+    .setPin(".whisper")
     .addTo(controller)
 
   },
@@ -210,12 +224,17 @@ export default {
         The thought of escaping down the dumbwaiter shaft crossed her mind in a wild burst, and then she rejected it. Danny was small enough to fit into it, but she would be unable to control the rope pull.
         He might go crashing all the way to the bottom.
       </p>
-      <p data-offset="7400">
+      <div class="bed-container">
+        <p data-offset="7400">
         The bathroom it would have to be. And if Jack broke through into there—
         But she wouldn't allow herself to think of it.
         “Danny, honey, you'll have to wake up n—”
+       </p>
+       <img src="~assets/the-shining/bed.svg" class="bed" alt="Empty bed">
+      <p>
         But the bed was empty.
       </p>
+      </div>
       <p data-offset="7600">
         When he had begun to sleep more soundly, she had thrown the blankets and one of the quilts over him. Now they were thrown back. 
       </p>
@@ -225,9 +244,11 @@ export default {
       <p data-offset="7800">
         “Come out here! Unlock this goddam door!”
       </p>
-      <p data-offset="7900">
-        “Danny?” she whispered.
-      </p>
+      <div class="whisper">
+        <p>
+          “Danny?”<br> she whispered.
+        </p>
+      </div>
       <p data-offset="8000">
         Of course… when Jack had attacked her. It had come through to him, as violent emotions always seemed to. Perhaps he'd even seen the whole thing in a nightmare. He was hiding.
       </p>
@@ -240,7 +261,7 @@ export default {
           <img src="~assets/the-shining/door.svg" class="door" alt="Door" />
           <img src="~assets/the-shining/door-frame.svg" alt="Door frame" />
           <img src="~assets/the-shining/shining-door-break.png" class="door-hole" alt="Door hole">
-          <img src="~assets/the-shining/door-mask2.png" alt="">
+          <img src="~assets/the-shining/door-mask2.png" class="door-mask">
         </div>
         <div>
         <p data-offset="9000">
@@ -389,98 +410,115 @@ p {
   width: 30em;
 }
 
-.paragraph1 .door-container {
+.door-text .door-container {
   position: relative;
   width: 15em;
   margin-bottom: 5rem;
 }
 
-.door-break {
-  margin-left: auto;
-  height: 100vh;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 1em;
-}
-
-.door-break p {
-  max-width: auto;
-}
-
-.door-break div {
-    flex: 1;
-}
-
-.door-break .door-hole {
-  opacity: 0;
-}
-
-.door-break .door-container {
-  position: relative;
-  flex: 1;
-  height: 110vh;
-  align-self: center;
-}
-
-.door-break .door-container .door {
-  transform: rotateY(0) !important;
-}
-
-.door-break .door-container img:not(.mallet) {
-  height: 110vh;
-}
-
-.paragraph1 .door-text .door-container img {
+.door-text .door-container img {
   width: 100%;
-}
-
-.paragraph1 .door-container img:last-child {
-  position: absolute;
+  top: 0;
   left: 0;
-  top: 0;
 }
 
-.paragraph1 .door-break .door-container img:last-child {
+.door-text .door-container img:not(.mallet) {
   position: absolute;
-  right: 0;
-  left: unset;
-  z-index: 2;
 }
 
-.door-break .door-container img:not(:last-child) {
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-
-.door-break div:not(.door-container) {
+.door-text .door-container .mallet {
   position: relative;
-  z-index: 5;
-}
-
-.paragraph1 .door-break .door-container .mallet {
-  width: 55vw;
-  top: 21%;
   z-index: 2;
-  transform: rotateZ(85deg);
   opacity: 0;
-  left: 18%;
+  transform: rotate(-45deg);
+  top: 20%;
+  left: -50%;
 }
 
-.paragraph1 .door-container .door {
+.door-text .door {
   transform: rotateY(70deg);
   transform-origin: 5% 50%;
 }
 
-.paragraph1  .door-text .door-container .mallet {
+.bed-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+  padding-top: 2em;
+}
+
+.bed-container .bed {
+  opacity: 0;
+}
+
+.bed-container p:last-child {
+  font-size: 2rem;
+  transform-origin: bottom left;
+}
+
+.door-break .door-container {
+  width: 60%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  opacity: 0;
+}
+
+.door-break .door-container img {
+  height: 110vh;
+}
+
+.door-break .door-container img:not(.mallet) {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.door-break .door-container .mallet {
   position: absolute;
   z-index: 2;
-  width: 12em;
-  top: 45%;
-  transform: translate(-10%, -50%) rotate(-90deg);
-  left: -50%;
+  width: 50vw;
+  height: auto;
+  top: 23%;
+  right: -50%;
   opacity: 0;
+  transform: rotate(90deg);
+}
+
+.door-break {
+  width: 100%;
+  height: 110vh;
+}
+
+.door-break div:last-child {
+  width: 35%;
+  margin-left: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  position: relative;
+  z-index: 5;
+  opacity: 0;
+}
+
+.door-break .door-mask {
+  z-index: 3;
+}
+
+.whisper {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.whisper > p {
+  opacity: 1;
 }
 </style>
