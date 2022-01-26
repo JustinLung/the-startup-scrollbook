@@ -606,7 +606,7 @@ div.imfell {
 }
 
 .edge {
-  color: var(--lotr-grey);
+  color: var(--white);
   position: relative;
   z-index: 3;
   padding: 2rem;
@@ -686,7 +686,7 @@ div.imfell {
   text-align: center;
   margin-bottom: 2em;
   font-size: 1.7rem;
-  color: var(--lotr-grey);
+  color: var(--black);
 }
 
 .balrog figure {
@@ -932,7 +932,7 @@ div > p {
 }
 
 .darkness > p {
-  color: var(--lotr-grey);
+  color: var(--white);
 }
 
 .p23 {
