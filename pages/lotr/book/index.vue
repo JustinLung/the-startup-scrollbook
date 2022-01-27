@@ -597,11 +597,11 @@ div.imfell {
 }
 
 .cave {
-  height: 100vh;
+  height: 110vh;
   width: 100%;
   background: var(--black);
   position: fixed;
-  top: 0;
+  top: -1em;
   opacity: 0;
 }
 
