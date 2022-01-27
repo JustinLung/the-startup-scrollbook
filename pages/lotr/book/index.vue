@@ -169,7 +169,7 @@ export default {
     );
     new ScrollMagic.Scene({
       triggerElement: ".wide-eyes-container",
-      duration: this.height * 0.9,
+      duration: 900,
       triggerHook: 0,
     })
       .setTween(wideEyesText)
@@ -187,7 +187,7 @@ export default {
     );
     new ScrollMagic.Scene({
       triggerElement: ".gandalf-firm-container",
-      duration: this.height * 0.9,
+      duration: 900,
       triggerHook: 0,
     })
       .setTween(gandalfFirm)
