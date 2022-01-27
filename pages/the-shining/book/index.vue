@@ -9,6 +9,10 @@ export default {
     window.addEventListener("load", this.resize)
     window.addEventListener("resize", this.resize)
 
+    window.addEventListener("scroll", ()=>{
+      console.log(window.scrollY);
+    })
+
     const controller = new ScrollMagic.Controller();
 
     const entry = gsap.timeline()
@@ -125,7 +129,8 @@ export default {
     const breakDoor = gsap.timeline()
     .to('.door-break div:last-child', {opacity: 1})
     .to('.door-break .door-container', {opacity: 1})
-    .to('.door-break .mallet', {opacity: 1, rotate: 0, right: "-23%"})
+    .to('.door-break .mallet', {opacity: 1, rotate: 0, right: "-23%"}, "break")
+    .to('.door-break .door-hole', {opacity: 1, delay: .3}, "break")
 
     new ScrollMagic.Scene({
       triggerElement: ".door-break",
@@ -148,6 +153,20 @@ export default {
     })
     .setTween(whisper)
     .setPin(".whisper")
+    .addTo(controller)
+
+    //Jack shout
+    const jack = gsap.timeline()
+    .to(".jack-shout p", {opacity: 1})
+    .to(".jack-shout img", {scale: 1.7, opacity: 1})
+
+    new ScrollMagic.Scene({
+      triggerElement: ".jack-shout",
+      triggerHook: 0,
+      duration: 1500
+    })
+    .setTween(jack)
+    .setPin(".jack-shout")
     .addTo(controller)
 
   },
@@ -186,22 +205,22 @@ export default {
         Her nails pulled little strips of it loose.
       </p>
       <img class="scratch" src="~assets/the-shining/claw_nails.png" alt="Scratched surface">
-      <p data-offset="4450">
+      <p data-offset="4500">
         She ignored the pain and half-walked, half-shambled through the doorway as Jack came around the far corner and began to lunge his way down toward the open door, leaning on the roque mallet.
       </p>
       </div>
-      <p data-offset="4500">
+      <p data-offset="4800">
         She caught the edge of the dresser, held herself up against it, and grabbed the doorframe.
       </p>
-      <p data-offset="4700" class="dont-shut-text">
+      <p data-offset="5100" class="dont-shut-text">
         Jack shouted at her:<br>“Don't you shut that door! Goddam you, don't you dare shut it!”
       </p>
       <div class="door-text">
-        <p data-offset="4900">
+        <p data-offset="5500">
           She slammed it closed and shot the bolt.
           Her left hand pawed wildly at the junk on the dresser, knocking loose coins onto the floor where they rolled in every direction.
         </p>
-        <p data-offset="4900">
+        <p data-offset="5500">
           Her hand seized the key ring just as the mallet whistled down against the door, making it tremble in its frame.
         </p>
         <div class="door-container keyhole" data-offset="4900">
@@ -210,22 +229,29 @@ export default {
           <img src="~assets/the-shining/door-frame.svg" alt="Door frame" />
         </div>
       </div>
-      <p data-offset="5400">
+      <p data-offset="7300">
           She got the key into the lock on the second stab and twisted it to the right. At the sound of the tumblers falling, Jack screamed.
-          The mallet came down against the door in a volley of booming blows that made her flinch and step back.
-          How could he be doing that with a knife in his back? Where was he finding the strength?
-          She wanted to shriek Why aren't you dead? at the locked door.
       </p>
-      <p data-offset="7100" class="turn">
+      <p data-offset="7500" class="right-text">
+        The mallet came down against the door in a volley of booming blows that made her flinch and step back.
+        How could he be doing that with a knife in his back?
+      </p>
+      <p data-offset="7800">
+        Where was he finding the strength?
+        She wanted to shriek Why aren't you dead? at the locked door.
+      </p>
+      <p data-offset="8000" class="turn right-text">
         Instead she turned around. 
       </p>
-      <p data-offset="7300">
+      <p data-offset="8300">
         She and Danny would have to go into the attached bathroom and lock that door, too, in case Jack actually could break through the bedroom door.
+      </p>
+      <p data-offset="8500" class="right-text">
         The thought of escaping down the dumbwaiter shaft crossed her mind in a wild burst, and then she rejected it. Danny was small enough to fit into it, but she would be unable to control the rope pull.
         He might go crashing all the way to the bottom.
       </p>
       <div class="bed-container">
-        <p data-offset="7400">
+        <p data-offset="8900">
         The bathroom it would have to be. And if Jack broke through into there—
         But she wouldn't allow herself to think of it.
         “Danny, honey, you'll have to wake up n—”
@@ -235,24 +261,29 @@ export default {
         But the bed was empty.
       </p>
       </div>
-      <p data-offset="7600">
+      <p data-offset="11000">
         When he had begun to sleep more soundly, she had thrown the blankets and one of the quilts over him. Now they were thrown back. 
       </p>
-      <p data-offset="7700">
-        “I'll get you!” Jack howled. “I'll get both of you!” Every other word was punctuated with a blow from the roque hammer, yet Wendy ignored both. All of her attention was focused on that empty bed.
-      </p>
-      <p data-offset="7800">
-        “Come out here! Unlock this goddam door!”
-      </p>
+      <div class="jack-shout">
+        <img src="~assets/the-shining/character-jack.svg" alt="Jack">
+        <div>
+          <p>
+            “I'll get you!” Jack howled. “I'll get both of you!” Every other word was punctuated with a blow from the roque hammer, yet Wendy ignored both. All of her attention was focused on that empty bed.
+          </p>
+          <p>
+            “Come out here! Unlock this goddam door!”
+          </p>
+        </div>
+      </div>
       <div class="whisper">
         <p>
           “Danny?”<br> she whispered.
         </p>
       </div>
-      <p data-offset="8000">
+      <p data-offset="16000">
         Of course… when Jack had attacked her. It had come through to him, as violent emotions always seemed to. Perhaps he'd even seen the whole thing in a nightmare. He was hiding.
       </p>
-      <p data-offset="6600">
+      <p data-offset="16200" class="right-text">
         She fell clumsily to her knees, enduring another bolt of pain from her swollen and bleeding leg, and looked under the bed. Nothing there but dustballs and Jack’s bedroom slippers.
       </p>
       <div class="door-break">
@@ -272,11 +303,25 @@ export default {
         </p>
         </div>
       </div>
-      <p data-offset="6800">
+      <p data-offset="19000" class="center">
         Wendy pulled herself to her feet again using the foot of the bed, and hobbled across the room to the closet. Her broken ribs stabbed at her, making her groan.
         “Danny?”
       </p>
     </div>
+    <p class="continue">Continue reading</p>
+    <section class="buy-section">
+      <p>Stephen King</p>
+      <h2>The Shining</h2>
+      <p>1977</p>
+      <figure>
+        <img
+          src="~assets/Bookcover-theshining.png"
+          alt="Book Cover of The Shining"
+          class="book"
+        />
+      </figure>
+      <NuxtLink to="/" class="cta">Buy | €6,49</NuxtLink>
+    </section>
   </div>
 </template>
 
@@ -358,6 +403,16 @@ p {
   max-width: 30rem;
 }
 
+.right-text {
+  text-align: right;
+  align-self: flex-end;
+}
+
+.center {
+  text-align: center;
+  align-self: center;
+}
+
 .text {
   display: flex;
   justify-content: center;
@@ -369,6 +424,14 @@ p {
 .text p {
   opacity: 0;
   margin-bottom: 5rem;
+}
+
+.text > p {
+  margin-bottom: 10rem;
+}
+
+.text > p:last-child {
+  margin-top: 15rem;
 }
 
 .claw {
@@ -492,6 +555,10 @@ p {
   height: 110vh;
 }
 
+.door-break .door-hole {
+  opacity: 0;
+}
+
 .door-break div:last-child {
   width: 35%;
   margin-left: auto;
@@ -520,5 +587,77 @@ p {
 
 .whisper > p {
   opacity: 1;
+}
+
+.jack-shout {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2em 0;
+}
+
+.jack-shout  p {
+  opacity: 0;
+}
+
+.jack-shout > img {
+  width: 25em;
+  position: relative;
+  opacity: 0;
+  transform: translateX(-40%) scale(1.5);
+}
+
+.continue {
+  text-align: center;
+  font-size: 1.3rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  margin: 0 auto;
+}
+
+.buy-section {
+  text-align: center;
+  margin: 2em;
+  padding: 2em 0;
+  border-radius: 2em;
+  background-color: var(--white);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+.buy-section figure > img {
+  width: 15em;
+  padding: 3em 0;
+  animation: up-and-down infinite alternate ease 2s;
+}
+
+.buy-section h2 {
+  font-size: 2.5rem;
+}
+
+.buy-section p {
+  font-size: 2rem;
+  margin: 0 auto;
+}
+
+.cta {
+  position: relative;
+  z-index: 5;
+  padding: 1em 3em;
+  font-size: 1.2rem;
+  background-color: var(--dark-blue);
+  margin-bottom: 2em;
+}
+
+@keyframes up-and-down {
+  from {
+    transform: translateY(-1em);
+  }
+
+  to {
+    transform: translateY(1em);
+  }
 }
 </style>
