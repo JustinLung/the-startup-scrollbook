@@ -310,7 +310,7 @@ export default {
       </h1>
       <img src="~assets/lotr/mines-of-moria.png" alt="The mines of moria" />
     </section>
-    <div class="cave" data-offset="2000" data-duration="1000"></div>
+    <div class="cave" data-offset="2600" data-duration="1000"></div>
     <div class="edge">
       <FireParticles ref="particles" />
       <p data-offset="3500">
@@ -601,7 +601,7 @@ div.imfell {
   width: 100%;
   background: var(--black);
   position: fixed;
-  top: -1em;
+  top: -1.5em;
   opacity: 0;
 }
 
